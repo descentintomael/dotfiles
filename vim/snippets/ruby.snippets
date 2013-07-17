@@ -393,12 +393,6 @@ snippet xpa
 	elements.each(${1:"//Xpath"}) do |${2:node}|
 		${3}
 	end
-# class_from_name()
-snippet clafn
-	split("::").inject(Object) { |par, const| par.const_get(const) }
-# singleton_class()
-snippet sinc
-	class << self; self end
 snippet nam
 	namespace :${1:`Filename()`} do
 		${2}
@@ -418,12 +412,6 @@ snippet defp
 	def ${1:method_name}(${2:params})
 	  ${3}
 	end
-snippet inst
-	institution${1}
-snippet acti
-	activation_group${1}
-snippet prot
-	protocol${1}
 #
 # For rspec
 snippet desc
@@ -438,9 +426,9 @@ snippet con
 	context '${1}' do
 	  ${2}
 	end
-snippet bed
-	before do
-	  ${1}
+snippet with
+	context 'with ${1}' do
+	  ${2}
 	end
 snippet cont
 	context '${1}' do
@@ -449,21 +437,13 @@ snippet cont
 snippet spec
 	require 'spec_helper'
 
-	describe '${1}' do
+	describe ${1} do
 	  ${2}
 	end
-snippet hc
-	expect(page).to have_content(${1})
-snippet F
-	Factory(:${1})
-snippet cuke
-	"([^"]*)" ${1}
 snippet let
 	let(:${1}) { ${2} }
 snippet letb
 	let!(:${1}) { ${2} }
-snippet puts
-	puts "\n\n************ #{${1}} **************\n\n"
 snippet mm
 	def method_missing(method, *args, &block)
 	  @target.send(method, *args, &block)
@@ -472,14 +452,6 @@ snippet defi
 	def initialize(${1})
 	  ${2}
 	end
-snippet test
-	require 'test_helper'
-
-	class ${1}Test < ActiveSupport::TestCase
-	  ${2}
-	end
-snippet ex
-	expect(${1}).to ${2}
 snippet scen
 	scenario '${1}' do
 	  ${2}
