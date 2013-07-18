@@ -1,35 +1,58 @@
-[user]
-	name = Ben Orenstein
-	email = ben.orenstein@gmail.com 
-[alias]
-	co = checkout
-        cleanup = !git remote prune origin && git gc && git clean -df && git stash clear
+[[user]
+    name = Sean Todd
+    email = sean@paynearme.com
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+    ui = auto
+[alias]
+    stat = status
+    st = status --short
+    remove = rm
+    ci = commit
+    cia = commit -a
+    ciaa = commit -a --amend
+    cip = !git add -p && git ci
+    cipa = !git add -p && git ci --amend
+    br = branch
+    co = checkout
+    df = diff
+    lg = log -p
+    loll = log --graph --decorate --pretty=oneline --abbrev-commit
+    lol = !git --no-pager loll
+    lolal = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    lola = !git --no-pager lolal
+    ls = ls-files
+    unstash = stash pop
+    log-merge = !git log $(git merge-base --octopus $(git log -1 --merges --pretty=format:%P $1))..$1 --graph --pretty=oneline --abbrev-commit --boundary
+    log-all = !git log --graph --decorate --pretty=oneline --abbrev-commit --all $(git fsck --no-reflogs | grep commit | cut -d\\  -f3)
+    git = !git
+    x = !gitx
+    man = help
+    pop = stash pop
+    cp = cherry-pick
+    switch = !legit switch \"$@\"
+    branches = !legit branches
+    sprout = !legit sprout \"$@\"
+    unpublish = !legit unpublish \"$@\"
+    harvest = !legit harvest \"$@\"
+    sync = !legit sync \"$@\"
+    publish = !legit publish \"$@\"
+    graft = !legit graft \"$@\"
+[branch]  
+    autosetuprebase = always
+[mergetool]
+    keepBackup = true
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim --noplugin
+[color]
+    diff = auto
+    status = auto
+    branch = auto
 
 [color "diff"]
-        meta = yellow 
-
-[core]
-	excludesfile = ~/.gitignore
-	editor = vim --noplugin
+    meta = yellow 
 [apply]
-	whitespace = nowarn
-
-[alias]
-      lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-[help]
-	autocorrect = 1
-[branch]
-	autosetupmerge = true
-        autosetuprebase = always
-[push]
-	default = current
-[rerere]
-	enabled = 1
+    whitespace = nowarn
 [github]
-	user = r00k
-[merge]
-        ff = only
+    user = descentintomael
+    
