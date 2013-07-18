@@ -13,7 +13,6 @@ Bundle 'gmarik/vundle'
 
 " My bundles
 Bundle 'ervandew/supertab'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-cucumber'
 Bundle 'tpope/vim-endwise'
@@ -24,13 +23,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
-Bundle 'koron/nyancat-vim'
 Bundle 'vim-scripts/ruby-matchit'
-
-" Clojure
-Bundle 'tpope/vim-foreplay'
-Bundle 'tpope/vim-classpath'
-Bundle 'guns/vim-clojure-static'
 
 " ================
 " Ruby stuff
@@ -48,114 +41,105 @@ augroup END
 
 let mapleader = ","
 
-vmap <Leader>b :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-map <Leader>bb :!bundle install<cr>
-nmap <Leader>bi :source ~/.vimrc<cr>:BundleInstall<cr>
-vmap <Leader>bed "td?describe<cr>obed<tab><esc>"tpkdd/end<cr>o<esc>:nohl<cr>
-map <Leader>cc :!cucumber --drb %<CR>
-map <Leader>cu :Tabularize /\|<CR>
-map <Leader>co ggVG"*y
-map <Leader>cc :Rjcollection client/
-map <Leader>cj :Rjspec client/
-map <Leader>cm :Rjmodel client/
-map <Leader>ct :Rtemplate client/
-map <Leader>cv :Rjview client/
-map <Leader>cn :e ~/Dropbox/notes/coding-notes.txt<cr>
-map <Leader>d odebugger<cr>puts 'debugger'<esc>:w<cr>
-map <Leader>dr :e ~/Dropbox<cr>
-map <Leader>ec :e ~/code/
-map <Leader>gac :Gcommit -m -a ""<LEFT>
-map <Leader>gc :Gcommit -m ""<LEFT>
-map <Leader>gr :e ~/Dropbox/docs/journal<CR>
-map <Leader>gs :Gstatus<CR>
-map <Leader>gw :!git add . && git commit -m 'WIP' && git push<cr>
-map <Leader>f :call OpenFactoryFile()<CR>
-map <Leader>fix :cnoremap % %<CR>
-map <Leader>fa :sp test/factories.rb<CR>
-map <Leader>h :CommandT<CR>
-map <Leader>i mmgg=G`m<CR>
-map <Leader>j :CommandT app/assets/javascripts<cr>client/
-map <Leader>l oconsole.log 'debugging'<esc>:w<cr>
-map <Leader>m :Rmodel 
-map <Leader>nn :sp ~/Dropbox/notes/programming_notes.txt<cr>
-map <Leader>o :w<cr>:call RunCurrentLineInTest()<CR>
-map <Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>
-map <Leader>pn :sp ~/Dropbox/work/thoughtbot/notes/project-notes.txt<cr>
-map <Leader>ra :%s/
-map <Leader>rd :!bundle exec rspec % --format documentation<CR>
-map <Leader>rf :CommandTFlush<CR>:CommandT<CR>
-map <Leader>rs :vsp <C-r>#<cr><C-w>w
-map <Leader>rt q:?!ruby<cr><cr>
-map <Leader>rw :%s/\s\+$//<cr>:w<cr>
-map <Leader>sc :sp db/schema.rb<cr>
-map <Leader>sg :sp<cr>:grep 
-map <Leader>sj :call OpenJasmineSpecInBrowser()<cr>
-map <Leader>sm :RSmodel 
-map <Leader>sp yss<p>
-map <Leader>sn :e ~/.vim/snippets/ruby.snippets<CR>
-map <Leader>so :so %<cr>
-map <Leader>sq j<c-v>}klllcs<esc>:wq<cr>
-map <Leader>ss ds)i <esc>:w<cr>
-map <Leader>st :!ruby -Itest % -n "//"<left><left>
-map <Leader>su :RSunittest 
-map <Leader>sv :RSview 
-map <Leader>t :w<cr>:call RunCurrentTest()<CR>
-map <Leader>y :!rspec --drb %<cr>
-map <Leader>u :Runittest<cr>
-map <Leader>vc :RVcontroller<cr>
-map <Leader>vf :RVfunctional<cr>
-map <Leader>vg :vsp<cr>:grep 
-map <Leader>vi :tabe ~/.vimrc<CR>
-map <Leader>vu :RVunittest<CR>
-map <Leader>vm :RVmodel<cr>
-map <Leader>vv :RVview<cr>
-map <Leader>w <C-w>w
-map <Leader>x :exec getline(".")<cr>
 
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>e :e <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>s :split <C-R>=expand("%:p:h") . '/'<CR>
-map <Leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR>
-
-map <C-h> :nohl<cr>
-imap <C-l> :<Space>
-map <C-s> <esc>:w<CR>
-imap <C-s> <esc>:w<CR>
-map <C-t> <esc>:tabnew<CR>
-map <C-x> <C-w>c
-map <C-n> :cn<CR>
-map <C-p> :cp<CR>
-
-" Emacs-like beginning and end of line.
-imap <c-e> <c-o>$
-imap <c-a> <c-o>^
-
-set nocompatible
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set history=500		" keep 500 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
+" --------------------
+" -- EDITING
+" --------------------
+" Make backspace work like normal text editors
+set backspace=start,indent,eol
 set autoindent
-set showmatch
-set nowrap
-set backupdir=~/.tmp
-set directory=~/.tmp " Don't clutter my dirs up with swp and tmp files
 set autoread
-set wmh=0
-set viminfo+=!
-set guioptions-=T
-set guifont=Triskweline_10:h10
-set et
-set sw=2
 set smarttab
-set noincsearch
-set ignorecase smartcase
-set laststatus=2  " Always show status line.
-set relativenumber
-set gdefault " assume the /g flag on :s substitutions to replace all matches in a line
-set autoindent " always set autoindenting on
-set bg=light
+set tabstop=2
+set shiftwidth=2
+set gdefault " Make search/replace global by default
+
+" --------------------
+" -- HISTORY
+" --------------------
+set history=500
+set undolevels=75
+
+" --------------------
+" -- INTERFACE
+" --------------------
+syntax enable " enable syntax highlighting and allow custom highlighting
+set title " set the title to the file name and modification status
+set rnu " show the line numbers relative to current position
+set ruler " always show the current position
+set showcmd " show the command being typed
+set showmode " show current mode (insert, visual, etc.)
+set laststatus=2 " always show status line 
+set wildmenu
+
+" --------------------
+" -- SEARCHING 
+" --------------------
+set ignorecase " ignore case when searching
+set smartcase " case sensitive only when capital letter in expression
+set hlsearch " highlight search terms
+set incsearch " show matches as they are found
+
+" --------------------
+" -- FEEDBACK 
+" --------------------
+set showmatch " show matching brace when they are typed or under cursor
+set matchtime=2 " length of time for 'showmatch'
+
+" --------------------
+" -- REDRAW / WARNINGS 
+" --------------------
+set lazyredraw " Don't redraw the screen when executing macros
+set noerrorbells " No bell for error messages
+set visualbell " Use whatever 't_vb' is set to as the bell
+set t_vb=  " Set the visual bell to nothing for now TODO: Fill in later
+
+" Restore 't_vb" since it is reset after GUI startup
+if has("gui_running")
+    augroup disable_gui_visual_bell
+        autocmd!
+        autocmd GUIEnter * set t_vb=
+    augroup end
+endif
+
+" --------------------
+" -- NAVIGATION 
+" --------------------
+set scrolloff=5 " Start scrolling the window 5 lines before the edge of the window
+set sidescrolloff=5
+
+" --------------------
+" -- MOUSE INPUT 
+" --------------------
+set mouse=a " enable mouse support
+
+" --------------------
+" -- ENCODING 
+" --------------------
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,default,latin1 " Encodings to look for when loading files.
+
+" --------------------
+" -- FILES
+" --------------------
+filetype plugin indent on " let vim detect filetype and load appropriate scripts
+set autowrite " Automatically save the file when I look away
+
+
+" --------------------
+" -- COLORING
+" --------------------
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<SID>
+function! <SID>SynStack()
+  if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'),col('.')), 'syndIDattr(v:val, "name")')
+endfunc
+
+
 
 " Set the tag file search order
 set tags=./tags;
@@ -165,9 +149,6 @@ set tags=./tags;
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
-
-" Get rid of the delay when hitting esc!
-set noesckeys
 
 " Make the omnicomplete text readable
 :highlight PmenuSel ctermfg=black
@@ -284,28 +265,8 @@ nmap k gk
 nmap j gj
 
 
-" Set up some useful Rails.vim bindings for working with Backbone.js
-autocmd User Rails Rnavcommand template    app/assets/templates               -glob=**/*  -suffix=.jst.ejs
-autocmd User Rails Rnavcommand jmodel      app/assets/javascripts/models      -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jview       app/assets/javascripts/views       -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jcollection app/assets/javascripts/collections -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jrouter     app/assets/javascripts/routers     -glob=**/*  -suffix=.coffee
-autocmd User Rails Rnavcommand jspec       spec/javascripts                   -glob=**/*  -suffix=.coffee
-
 " Don't add the comment prefix when I hit enter or o/O on a comment line.
 set formatoptions-=or
-
-
-function! OpenJasmineSpecInBrowser()
-  let filename = expand('%')
-  "                  substitute(exprsson, pattern,            substitution,    flags)
-  let url_fragment = substitute(filename, "spec/javascripts", "evergreen/run", "")
-  let host_fragment = "http://localhost:3001/"
-  let url = host_fragment . url_fragment
-  silent exec "!open ~/bin/chrome" url
-endfunction
-
-" set statusline+=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 let g:CommandTMaxHeight=50
 let g:CommandTMatchWindowAtTop=1
@@ -314,11 +275,6 @@ let g:CommandTMatchWindowAtTop=1
 " situations.
 set timeoutlen=500
 
-" Don't go past 100 chars on levelup:
-autocmd BufNewFile,BufRead /Users/ben/code/levelup/*.rb set colorcolumn=100
-
-" Remove trailing whitespace on save for ruby files.
-au BufWritePre *.rb :%s/\s\+$//e
 
 function! OpenFactoryFile()
   if filereadable("test/factories.rb")
