@@ -27,12 +27,7 @@ task :install do
       link_file(file)
     end
   end
-
-  # Handle ssh pubkey on its own
-  puts "Linking public ssh key"
-  system %Q{rm "$HOME/.ssh/id_dsa.pub"}
-  system %Q{ln -s "$PWD/id_dsa.pub" "$HOME/.ssh/id_dsa.pub"}
-
+  
   # Need to do this to make vim use RVM's ruby version
   puts "Moving zshenv to zshrc"
   system %Q{sudo mv /etc/zshenv /etc/zshrc}
