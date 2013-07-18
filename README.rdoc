@@ -1,4 +1,6 @@
-=== Ben Orenstein's dot files
+=== Sean Todd's dot files
+
+This is shamelessly stolen from [Ben Orenstein](https://github.com/r00k).  I forked it and then made it my own.
 
 These are config files to set up a system the way I like it.
 
@@ -8,7 +10,7 @@ I'm also a pretty aggressive aliaser. You might find a few you like in bash/alia
 
 == Installation
 
-  git clone git://github.com/r00k/dotfiles ~/.dotfiles
+  git clone git://github.com/descentintomael/dotfiles ~/.dotfiles
   cd ~/.dotfiles
   rake install
 
