@@ -147,7 +147,7 @@ endfunc
 set tags=./tags;
 
 " Use _ as a word-separator
-" set iskeyword-=_
+ set iskeyword-=_,#
 
 " Use Silver Searcher instead of grep
 set grepprg=ag
