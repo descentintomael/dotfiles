@@ -41,6 +41,8 @@ augroup END
 
 let mapleader = ","
 
+inoremap '; <Esc>
+vnoremap '; <Esc>
 
 " --------------------
 " -- EDITING
