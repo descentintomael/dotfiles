@@ -46,3 +46,8 @@ alias myco="git log --author=me"
 
 # Rails/Ruby related aliases
 alias user="rake db:create_user[\"Sean\",\"sean@paynearme.com\"]"
+
+# Dotfiles folder aliases
+alias dotv="vim ~/.dotfiles"
+alias dotf="~/.dotfiles"
+
