@@ -22,8 +22,8 @@ if ENV.include?('RAILS_ENV')
 # for rails 3
 elsif defined?(Rails) && !Rails.env.nil?
   if Rails.logger
-    #Rails.logger =Logger.new(STDOUT)
-    #ActiveRecord::Base.logger = Rails.logger
+    Rails.logger =Logger.new(STDOUT)
+    ActiveRecord::Base.logger = Rails.logger
   end
   if Rails.env == 'test'
     require 'spec_helper'
