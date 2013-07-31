@@ -1,7 +1,8 @@
 require 'rubygems' rescue nil
 require 'wirble'
 require 'ap'
-#require 'interactive_editor'
+require 'interactive_editor'
+require 'timecop'
 
 IRB.conf[:AUTO_INDENT] = true
 
