@@ -2,6 +2,9 @@
 set nocompatible
 filetype off
 
+" All hail the leader
+let mapleader = ","
+
 " Use Pathogen:
 call pathogen#incubate()
 call pathogen#helptags()
@@ -34,8 +37,11 @@ Bundle "garbas/vim-snipmate"
 
 " Add in Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-let mapleader = ","
+" Set ctrl-p to leader-t because that's what I'm used to
+let g:ctrlp_map='<Leader>t'
+let g:ctrlp_cmd = 'CtrlP'
+" Move the Ctrl-P window to the top (easier with a veritcal monitor
+let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
 
 inoremap '; <Esc>
 vnoremap '; <Esc>
