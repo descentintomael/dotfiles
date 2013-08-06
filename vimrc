@@ -1,3 +1,7 @@
+" Use VIM, not VI
+set nocompatible
+filetype off
+
 " Use Pathogen:
 call pathogen#incubate()
 call pathogen#helptags()
