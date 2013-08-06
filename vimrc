@@ -48,6 +48,12 @@ vnoremap '; <Esc>
 nnoremap '; :w<CR>
 
 " --------------------
+" -- VIMRC MANAGEMENT
+" --------------------
+nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+" --------------------
 " -- EDITING
 " --------------------
 " Make backspace work like normal text editors
