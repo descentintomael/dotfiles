@@ -25,19 +25,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/ruby-matchit'
 
-" ================
-" Ruby stuff
-" ================
-syntax on                 " Enable syntax highlighting
-filetype plugin indent on " Enable filetype-specific indenting and plugins
-
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
-augroup END
-" ================
 
 let mapleader = ","
 
@@ -343,4 +330,16 @@ if has("autocmd")
 
   augroup END
 
+  " ================
+  " Ruby stuff
+  " ================
+  syntax on                 " Enable syntax highlighting
+
+  augroup myfiletypes
+  	" Clear old autocmds in group
+  	autocmd!
+  	" autoindent with two spaces, always expand tabs
+  	autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+  augroup END
+  " ================
 endif " has("autocmd")
