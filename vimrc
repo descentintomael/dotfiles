@@ -26,13 +26,14 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'wincent/Command-T'
 Bundle 'vim-scripts/ruby-matchit'
 Bundle 'thoughtbot/vim-rspec'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 
+" Add in Ctrl-P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let mapleader = ","
 
