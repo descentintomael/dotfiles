@@ -39,7 +39,7 @@ Bundle "garbas/vim-snipmate"
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Set ctrl-p to leader-t because that's what I'm used to
 let g:ctrlp_map='<Leader>t'
-let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlPMixed'
 " Move the Ctrl-P window to the top (easier with a veritcal monitor
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
 
