@@ -53,6 +53,8 @@ set undolevels=75
 " -- INTERFACE
 " --------------------
 syntax enable " enable syntax highlighting and allow custom highlighting
+set background=dark " Use the dark variant of my theme
+colorscheme solarized
 set title " set the title to the file name and modification status
 set rnu " show the line numbers relative to current position
 set ruler " always show the current position
