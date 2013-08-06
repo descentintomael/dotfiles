@@ -58,6 +58,9 @@ set smarttab
 set tabstop=2
 set shiftwidth=2
 set gdefault " Make search/replace global by default
+" Turn off new line commenting (as in if this line is a comment, so is the
+" next one
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " --------------------
 " -- HISTORY
