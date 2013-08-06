@@ -113,7 +113,6 @@ set fileencodings=ucs-bom,utf-8,default,latin1 " Encodings to look for when load
 " --------------------
 " -- FILES
 " --------------------
-filetype plugin indent on " let vim detect filetype and load appropriate scripts
 set autowrite " Automatically save the file when I look away
 
 
@@ -125,9 +124,9 @@ set autowrite " Automatically save the file when I look away
 nmap <C-S-P> :call <SID>SynStack()<SID>
 function! <SID>SynStack()
   if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'),col('.')), 'syndIDattr(v:val, "name")')
+  	return
+  endif
+  echo map(synstack(line('.'),col('.')), 'syndIDattr(v:val, "name")')
 endfunc
 
 
