@@ -45,6 +45,7 @@ let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
 
 inoremap '; <Esc>
 vnoremap '; <Esc>
+nnoremap '; :w<CR>
 
 " --------------------
 " -- EDITING
