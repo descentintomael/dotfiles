@@ -86,7 +86,6 @@ set ruler " always show the current position
 set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
 set laststatus=2 " always show status line 
-set wildmenu
 
 " --------------------
 " -- SEARCHING 
