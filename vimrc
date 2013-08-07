@@ -42,6 +42,10 @@ let g:ctrlp_map='<Leader>t'
 let g:ctrlp_cmd = 'CtrlPLastMode'
 " Move the Ctrl-P window to the top (easier with a veritcal monitor
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|log|sql)$'
+  \ }
 
 inoremap '; <Esc>
 vnoremap '; <Esc>
@@ -198,6 +202,7 @@ au BufNewFile,BufRead *.txt setlocal lbr
 set wildmenu
 " What to do when I press 'wildchar'. Worth tweaking to see what feels right.
 set wildmode=list:full
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.sql,*.log
 
 " (Hopefully) removes the delay when hitting esc in insert mode
 set noesckeys
