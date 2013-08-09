@@ -98,6 +98,7 @@ set ignorecase " ignore case when searching
 set smartcase " case sensitive only when capital letter in expression
 set hlsearch " highlight search terms
 set incsearch " show matches as they are found
+set tags=./tags; " The tags file will always be in the current folder
 
 " --------------------
 " -- FEEDBACK 
