@@ -7,6 +7,6 @@ gem "pry-doc", :group => [:development, :test]
 gem "thin"
 gem 'better_errors'
 gem 'bullet' # detect N+1 queries
-gem 'rack-mini-profiler'
+gem 'rack-mini-profiler', :group => [:development]
 gem 'interactive_editor'
 
