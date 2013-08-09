@@ -91,6 +91,17 @@ set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
 set laststatus=2 " always show status line 
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+" Toggle between relative numbers and absolute numbers
+nnoremap <C-n> :call NumberToggle()<cr>
+
 " --------------------
 " -- SEARCHING 
 " --------------------
