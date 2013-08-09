@@ -138,6 +138,16 @@ endif
 " --------------------
 set scrolloff=5 " Start scrolling the window 5 lines before the edge of the window
 set sidescrolloff=5
+" Tab navigation setup - press cmd+N to go to tab N
+nnoremap <D-1> 1gt
+nnoremap <D-2> 2gt
+nnoremap <D-3> 3gt
+nnoremap <D-4> 4gt
+nnoremap <D-5> 5gt
+nnoremap <D-6> 6gt
+nnoremap <D-7> 7gt
+nnoremap <D-8> 8gt
+nnoremap <D-9> 9gt
 
 " --------------------
 " -- MOUSE INPUT 
