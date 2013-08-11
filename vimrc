@@ -93,8 +93,10 @@ set laststatus=2 " always show status line
 
 function! NumberToggle()
   if(&relativenumber == 1)
+    set nornu
     set number
   else
+    set nonu
     set relativenumber
   endif
 endfunc
