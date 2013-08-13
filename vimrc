@@ -73,6 +73,8 @@ set gdefault " Make search/replace global by default
 " next one
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+nmap <D-/> :TComment<CR>
+
 " --------------------
 " -- HISTORY
 " --------------------
