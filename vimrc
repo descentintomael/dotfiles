@@ -40,7 +40,9 @@ Bundle 'taglist.vim'
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 " Set ctrl-p to leader-t because that's what I'm used to
 let g:ctrlp_map='<Leader>t'
-let g:ctrlp_cmd = 'CtrlPLastMode'
+let g:ctrlp_cmd = 'CtrlP'
+" Leader-b opens up CtrlP for buffers
+nmap <silent> <Leader>b :CtrlPBuffer<CR>
 " Move the Ctrl-P window to the top (easier with a veritcal monitor
 let g:ctrlp_match_window = 'top,order:btt,min:1,max:10,results:10'
 let g:ctrlp_custom_ignore = {
