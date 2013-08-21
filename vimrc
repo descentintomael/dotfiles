@@ -35,6 +35,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'taglist.vim'
+Bundle 'ack.vim'
 
 " Add in Ctrl-P
 set runtimepath^=~/.vim/bundle/ctrlp.vim
