@@ -40,4 +40,9 @@ def show(obj)
   y(obj.send("column_names"))
 end
 
+def columns(model_class)
+  ap(model_class.columns_hash.keys.sort)
+  nil
+end
+
 puts "> all systems are go <"
