@@ -162,6 +162,17 @@ nnoremap <D-7> 7gt
 nnoremap <D-8> 8gt
 nnoremap <D-9> 9gt
 
+" Re-map ctrl-w+nav to remove the middle ctrl-w
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+noremap <C-h> <C-w>h
+
+noremap <C-J> <C-w>J
+noremap <C-K> <C-w>K
+noremap <C-L> <C-w>L
+noremap <C-H> <C-w>H
+
 " --------------------
 " -- MOUSE INPUT 
 " --------------------
