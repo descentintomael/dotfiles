@@ -9,4 +9,5 @@ gem 'better_errors'
 gem 'bullet' # detect N+1 queries
 gem 'rack-mini-profiler', :group => [:development]
 gem 'interactive_editor'
+gem 'binding_of_caller', :group => [:development]
 
