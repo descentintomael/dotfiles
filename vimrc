@@ -129,6 +129,7 @@ nnoremap <Leader>a :Ack --ruby
 " --------------------
 set showmatch " show matching brace when they are typed or under cursor
 set matchtime=2 " length of time for 'showmatch'
+set cursorline
 
 " --------------------
 " -- REDRAW / WARNINGS 
