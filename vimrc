@@ -82,7 +82,12 @@ vmap <silent> <D-/> :TComment<CR>
 " -- HISTORY
 " --------------------
 set history=500
-set undolevels=75
+" Don't need to go nuts with the undo level, 150 should be fine
+set undolevels=150
+" Save text state between reloads (e.g. if you use :e!)
+set undoreload=200
+" OMG! Save undo levels between sessions! *fangirl squeel*
+set undodir=$HOME/.vim/undo
 
 " --------------------
 " -- INTERFACE
