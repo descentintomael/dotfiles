@@ -30,7 +30,7 @@ plugins=(git brew bundler gem rails3 rake rvm)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=$PATH,:/Users/sean/.rvm/bin:~:/usr/local/git/bin:~/projects/topo/commands:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/sean/.bin:$HOME/.rvm/bin
+export PATH=:/Users/sean/.rvm/bin:~:/usr/local/git/bin:~/projects/topo/commands:/usr/local/mysql/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/sean/.bin:$HOME/.rvm/bin,$PATH
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 # Source my custom files after oh-my-zsh so I can override things.
