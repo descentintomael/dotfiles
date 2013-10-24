@@ -129,7 +129,8 @@ set tags=./tags; " The tags file will always be in the current folder
 " Toggle search highlighting
 nnoremap <Leader>h :set hlsearch! hlsearch?<CR>
 " Quickly pull up ack
-nnoremap <Leader>a :Ack --ruby 
+nnoremap <Leader>a :Ack --ruby <C-r><C-w>
+nnoremap <Leader>A :Ack --ruby 
 
 " --------------------
 " -- FEEDBACK 
