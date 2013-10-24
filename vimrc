@@ -57,7 +57,9 @@ nnoremap '; :w<CR>
 " --------------------
 " -- VIMRC MANAGEMENT
 " --------------------
+" Edit vimrc
 nmap <silent> <leader>ev :tabe $MYVIMRC<CR>
+" Reload vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " --------------------
