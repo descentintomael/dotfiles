@@ -33,6 +33,7 @@ alias ddb="rake development:update_dataset;user"
 # A script to see how many migrations need to be run
 alias mc="~/.scripts/migration_count.rb"
 alias pdb="udb && tdb && rake dev:update_dataset && user"
+alias mysql_restart="sudo /Library/StartupItems/MySQLCOM/MySQLCOM restart"
 
 # Git related aliases
 alias gpush='git push origin HEAD'
