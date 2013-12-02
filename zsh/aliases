@@ -49,6 +49,7 @@ alias skip_common="skip Gemfile* && skip config/database.yml && skip config/envi
 alias skip="git update-index --assume-unchanged"
 alias noskip="git update-index --no-assume-unchanged"
 alias myco="git log --author=me"
+alias co="git checkout"
 
 # Rails/Ruby related aliases
 alias user="rake db:create_user[\"Sean\",\"sean@paynearme.com\"]"
