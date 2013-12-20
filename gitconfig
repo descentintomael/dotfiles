@@ -41,6 +41,7 @@
     autosetuprebase = always
 [mergetool]
     keepBackup = true
+	prompt = false
 [core]
     excludesfile = ~/.gitignore
     editor = vim --noplugin
@@ -61,3 +62,9 @@
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[diff]
+	tool = Kaleidoscope
+[difftool]
+	prompt = false
+[merge]
+	tool = Kaleidoscope
