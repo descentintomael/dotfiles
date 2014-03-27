@@ -30,6 +30,7 @@ alias ark="ack --ruby"
 alias m="mysql -u root"
 alias initdb="rake db:init_dev_db && user"
 alias ddb="rake development:update_dataset;user"
+alias tdb="sdb;rake db:create && rake db:redo_schema && rake db:test:clone"
 # A script to see how many migrations need to be run
 alias mc="~/.scripts/migration_count.rb"
 alias pdb="udb && tdb && rake dev:update_dataset && user"
