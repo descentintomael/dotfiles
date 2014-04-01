@@ -5,12 +5,6 @@ alias tf='tail -f'
 alias tfd='tf log/development.log'
 alias tft='tf log/test.log'
 
-# MacVim has a horrible bug where it breaks when I switch from
-# external monitor to no monitor.  The fix is to delete its
-# preference files.  This happens just about every damn day so
-# here is a goddamn alias for it
-alias fuck_mvim='rm ~/Library/Preferences/org.vim.*'
-
 # Folder shortcuts
 alias topo='~/projects/topo/'
 alias tbranch='~/projects/topo_branch/'
