@@ -184,6 +184,13 @@ noremap <C-K> <C-w>K
 noremap <C-L> <C-w>L
 noremap <C-H> <C-w>H
 
+" Make line navigation work the way I think it should work regardless of
+" wrapping
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
+
 " --------------------
 " -- MOUSE INPUT 
 " --------------------
