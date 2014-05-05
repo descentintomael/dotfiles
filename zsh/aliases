@@ -46,6 +46,7 @@ alias skip="git update-index --assume-unchanged"
 alias noskip="git update-index --no-assume-unchanged"
 alias myco="git log --author=me"
 alias co="git checkout"
+alias clean="git clean -fxd"
 
 # Rails/Ruby related aliases
 alias user="rake db:create_user[\"Sean\",\"sean@paynearme.com\"]"
