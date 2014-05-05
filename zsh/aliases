@@ -18,7 +18,7 @@ alias lah="ls -lah"
 alias rr="~/.scripts/recursive_replace.sh"
 
 # make an alias to ack since I live in Ruby-land
-alias ark="ack --ruby"
+alias ark="ag --ruby"
 
 # DB aliases
 alias m="mysql -u root"
