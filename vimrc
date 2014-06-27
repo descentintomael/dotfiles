@@ -35,6 +35,10 @@ Plugin 'ack.vim'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'bling/vim-airline'
+" Color matching for parens/brackets/etc
+Plugin 'kien/rainbow_parentheses.vim'
+" Tomorrow color theme
+Plugin 'chriskempson/vim-tomorrow-theme'
 
 " All plugins must go before this:
 call vundle#end()
@@ -44,6 +48,14 @@ filetype plugin indent on
 " Airline/Powerline stuff
 " ========================================================================
 let g:airline_powerline_fonts = 1
+
+" ========================================================================
+" Rainbow Parentheses stuff
+" ========================================================================
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ========================================================================
 " Ctrl-P stuff
@@ -107,8 +119,7 @@ set undodir=$HOME/.vim/undo
 " -- INTERFACE
 " --------------------
 syntax enable " enable syntax highlighting and allow custom highlighting
-set background=dark " Use the dark variant of my theme
-colorscheme solarized
+colorscheme "Tomorrow-Night" " Set the color scheme to a pale blue
 set title " set the title to the file name and modification status
 set rnu " show the line numbers relative to current position
 set ruler " always show the current position
@@ -116,6 +127,8 @@ set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
 set laststatus=2 " always show status line 
 set colorcolumn=80 " Highlight column 80 so I know when to wrap
+" Change the 80th char column to be grey instead of red
+autocmd ColorScheme * highlight ColorColumn guibg=Gray20
 set guifont=Sauce\ Code\ Powerline\ Light:h12
 
 function! NumberToggle()
