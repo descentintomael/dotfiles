@@ -116,7 +116,7 @@ set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
 set laststatus=2 " always show status line 
 set colorcolumn=80 " Highlight column 80 so I know when to wrap
-set guifont=Source\ Code\ Pro\ for\ Powerline\ ExtraLight:h12
+set guifont=Sauce\ Code\ Powerline\ Light:h12
 
 function! NumberToggle()
   if(&relativenumber == 1)
