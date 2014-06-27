@@ -11,6 +11,10 @@ alias tft='tf log/test.log'
 # here is a goddamn alias for it
 alias fuck_mvim='rm ~/Library/Preferences/org.vim.*'
 
+# Override system vi/vim, the override option in brew isn't working
+alias vi='mvim -v'
+alias vim='vi'
+
 # Folder shortcuts
 alias topo='~/projects/topo/'
 alias tbranch='~/projects/topo_branch/'
