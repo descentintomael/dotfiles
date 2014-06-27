@@ -34,10 +34,16 @@ Plugin 'taglist.vim'
 Plugin 'ack.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
 
 " All plugins must go before this:
 call vundle#end()
 filetype plugin indent on
+
+" ========================================================================
+" Airline/Powerline stuff
+" ========================================================================
+let g:airline_powerline_fonts = 1
 
 " ========================================================================
 " Ctrl-P stuff
@@ -110,6 +116,7 @@ set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
 set laststatus=2 " always show status line 
 set colorcolumn=80 " Highlight column 80 so I know when to wrap
+set guifont=Source\ Code\ Pro\ for\ Powerline\ ExtraLight:h12
 
 function! NumberToggle()
   if(&relativenumber == 1)
