@@ -15,6 +15,9 @@ alias fuck_mvim='rm ~/Library/Preferences/org.vim.*'
 alias vi='mvim -v'
 alias vim='vi'
 
+# Brew doesn't properly override ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
 # Folder shortcuts
 alias topo='~/projects/topo/'
 alias tbranch='~/projects/topo_branch/'
