@@ -55,6 +55,14 @@ call vundle#end()
 filetype plugin indent on
 
 " ========================================================================
+" SnipMate stuff
+" ========================================================================
+imap <C-Space> <Plug>snipMateNextOrTrigger
+smap <C-Space> <Plug>snipMateNextOrTrigger
+imap <C-S-Space> <Plug>snipMateBack
+smap <C-S-Space> <Plug>snipMateBack
+
+" ========================================================================
 " Airline/Powerline stuff
 " ========================================================================
 let g:airline_powerline_fonts = 1
@@ -84,6 +92,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|log|sql)$'
   \ }
 
+" Re-map '; to Esc because I like that
 inoremap '; <Esc>
 vnoremap '; <Esc>
 nnoremap '; :w<CR>
