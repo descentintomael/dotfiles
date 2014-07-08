@@ -19,21 +19,29 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " My bundles
+" A code completion plugin
 Plugin 'Valloric/YouCompleteMe'
+" A lagnuage senstive commenting plugin.  Access with cmd + /
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-fugitive'
+" Git accessor for Vim, I don't use it, commenting it out
+" Plugin 'tpope/vim-fugitive'
+" Plugin for adding/removing surrounding quotes, parens, brackets, etc.
 Plugin 'tpope/vim-surround'
+" Provides highlighting and other useful things for Rails development
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/ruby-matchit'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+" Adds code snippets
 Plugin 'garbas/vim-snipmate'
 Plugin 'taglist.vim'
 Plugin 'ack.vim'
 " Plugin 'altercation/vim-colors-solarized'
+" Plugin for fuzzy file finding
 Plugin 'kien/ctrlp.vim'
+" Makes the status bar all fancy
 Plugin 'bling/vim-airline'
 " Color matching for parens/brackets/etc
 Plugin 'kien/rainbow_parentheses.vim'
