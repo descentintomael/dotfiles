@@ -47,6 +47,8 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/rainbow_parentheses.vim'
 " Tomorrow color theme
 Plugin 'chriskempson/vim-tomorrow-theme'
+" Fall back to solarized for the terminal since tomorrow doesn't work there
+Plugin 'altercation/vim-colors-solarized'
 
 " All plugins must go before this:
 call vundle#end()
@@ -127,7 +129,12 @@ set undodir=$HOME/.vim/undo
 " -- INTERFACE
 " --------------------
 syntax enable " enable syntax highlighting and allow custom highlighting
-colorscheme "Tomorrow-Night" " Set the color scheme to a pale blue
+if &term=~'xterm'
+  set background=dark
+  colorscheme solarized
+else
+  colorscheme "Tomorrow-Night" " Set the color scheme to a pale blue
+endif
 set title " set the title to the file name and modification status
 set rnu " show the line numbers relative to current position
 set ruler " always show the current position
