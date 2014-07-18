@@ -165,13 +165,13 @@ function! NumberToggle()
     set nornu
     set number
   else
-    set nonu
+    set number
     set relativenumber
   endif
 endfunc
 
 " Toggle between relative numbers and absolute numbers
-nnoremap <C-n> :call NumberToggle()<cr>
+nnoremap <Leader>n :call NumberToggle()<cr>
 
 " --------------------
 " -- SEARCHING 
@@ -388,7 +388,7 @@ function! RenameFile()
         redraw!
     endif
 endfunction
-map <Leader>n :call RenameFile()<cr>
+map <C-n> :call RenameFile()<cr>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
