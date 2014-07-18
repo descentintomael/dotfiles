@@ -147,7 +147,7 @@ if &term=~'xterm'
   set background=dark
   colorscheme solarized
 else
-  colorscheme "Tomorrow-Night" " Set the color scheme to a pale blue
+  colorscheme Tomorrow-Night " Set the color scheme to a pale blue
 endif
 set title " set the title to the file name and modification status
 set rnu " show the line numbers relative to current position
