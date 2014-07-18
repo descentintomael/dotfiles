@@ -97,6 +97,11 @@ inoremap '; <Esc>
 vnoremap '; <Esc>
 nnoremap '; :w<CR>
 
+" ---------------------
+" -- Add Pry Shortcuts
+" ---------------------
+nmap <silent> <leader>B Obinding.pry<Esc>
+
 " --------------------
 " -- VIMRC MANAGEMENT
 " --------------------
