@@ -41,10 +41,10 @@
     autosetuprebase = always
 [mergetool]
     keepBackup = true
-	prompt = false
+    prompt = false
 [core]
     excludesfile = ~/.gitignore
-    editor = vim --noplugin
+    editor = mvim -v
 [color]
     diff = auto
     status = auto
@@ -56,15 +56,15 @@
     whitespace = nowarn
 [github]
     user = descentintomael
-    
+
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+   trustExitCode = true
 [diff]
-	tool = Kaleidoscope
+   tool = Kaleidoscope
 [difftool]
-	prompt = false
+   prompt = false
 [merge]
-	tool = Kaleidoscope
+   tool = Kaleidoscope
