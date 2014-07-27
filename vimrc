@@ -38,7 +38,11 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'vim-ruby/vim-ruby'
 
 " Adds code snippets
-Plugin 'garbas/vim-snipmate'
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 Plugin 'taglist.vim'
 Plugin 'ack.vim'
 " Plugin 'altercation/vim-colors-solarized'
@@ -56,14 +60,6 @@ Plugin 'altercation/vim-colors-solarized'
 " All plugins must go before this:
 call vundle#end()
 filetype plugin indent on
-
-" ========================================================================
-" SnipMate stuff
-" ========================================================================
-imap <C-Space> <Plug>snipMateNextOrTrigger
-smap <C-Space> <Plug>snipMateNextOrTrigger
-imap <C-S-Space> <Plug>snipMateBack
-smap <C-S-Space> <Plug>snipMateBack
 
 " ========================================================================
 " Airline/Powerline stuff
@@ -99,6 +95,13 @@ let g:ctrlp_custom_ignore = {
 inoremap '; <Esc>
 vnoremap '; <Esc>
 nnoremap '; :w<CR>
+
+" ---------------------
+" -- UltiSnips Setup
+" ---------------------
+let g:UltiSnipsExpandTrigger="<C-Space>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " ---------------------
 " -- Add Pry Shortcuts
