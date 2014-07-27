@@ -29,11 +29,14 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-surround'
 " Provides highlighting and other useful things for Rails development
 Plugin 'tpope/vim-rails'
+" Adds in nice shortcuts like [q and ]q
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-ruby/vim-ruby'
+
 Plugin 'vim-scripts/ruby-matchit'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
+Plugin 'vim-ruby/vim-ruby'
+
 " Adds code snippets
 Plugin 'garbas/vim-snipmate'
 Plugin 'taglist.vim'
