@@ -77,6 +77,12 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " ========================================================================
+" Silver Searcher Configuration
+" ========================================================================
+" Changes the ack.vim plugin to use Silver Searcher instead
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" ========================================================================
 " Ctrl-P stuff
 " ========================================================================
 " Add in Ctrl-P
