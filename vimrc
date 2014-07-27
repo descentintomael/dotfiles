@@ -56,6 +56,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
 " Fall back to solarized for the terminal since tomorrow doesn't work there
 Plugin 'altercation/vim-colors-solarized'
+" Automatically adds matching end tag
+Plugin 'endwise.vim'
 
 " All plugins must go before this:
 call vundle#end()
