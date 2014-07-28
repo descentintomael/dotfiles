@@ -260,7 +260,7 @@ noremap  <buffer> <silent> $ g$
 
 " Switch between the last two files
 " Thank you ThoughtBot!!! http://bit.ly/1AmdDMa
-nnoremap <leader><leader> <c-^>
+nnoremap <leader><leader> :w<CR><c-^>
 
 " --------------------
 " -- MOUSE INPUT 
