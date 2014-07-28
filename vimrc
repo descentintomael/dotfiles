@@ -258,6 +258,10 @@ noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 
+" Switch between the last two files
+" Thank you ThoughtBot!!! http://bit.ly/1AmdDMa
+nnoremap <leader><leader> <c-^>
+
 " --------------------
 " -- MOUSE INPUT 
 " --------------------
