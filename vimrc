@@ -164,7 +164,8 @@ else
   colorscheme Tomorrow-Night " Set the color scheme to a pale blue
 endif
 set title " set the title to the file name and modification status
-set rnu " show the line numbers relative to current position
+set number
+set relativenumber " show the line numbers relative to current position
 set ruler " always show the current position
 set showcmd " show the command being typed
 set showmode " show current mode (insert, visual, etc.)
