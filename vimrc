@@ -114,7 +114,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ---------------------
 " -- Add Pry Shortcuts
 " ---------------------
-nmap <silent> <leader>B Obinding.pry<Esc>
+nmap <silent> <leader>b Obinding.pry<Esc>
 
 " --------------------
 " -- VIMRC MANAGEMENT
