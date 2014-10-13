@@ -58,6 +58,9 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'altercation/vim-colors-solarized'
 " Automatically adds matching end tag
 Plugin 'endwise.vim'
+" Does static analysis of Ruby code quality
+Plugin 'ngmy/vim-rubocop'
+let g:vimrubocop_keymap = 0 " Don't auto map keyboard shortcuts
 
 " All plugins must go before this:
 call vundle#end()
