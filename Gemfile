@@ -26,3 +26,5 @@ gem 'looksee'
 # Gem for doing per second benchmarking
 gem 'benchmark-ips'
 
+# Used to find dead routes in Rails
+gem 'traceroute'
