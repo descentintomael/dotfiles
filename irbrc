@@ -40,8 +40,10 @@ def show(obj)
   y(obj.send("column_names"))
 end
 
-def columns(model_class)
-  ap(model_class.columns_hash.keys.sort)
+def columns(model_class, filter_by=nil)
+  columns = model_class.columns_hash.keys
+  columns.select! {|c| c =~ filter_by} if filter_by
+  ap columns.sort
   nil
 end
 
