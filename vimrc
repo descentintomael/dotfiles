@@ -464,3 +464,9 @@ if has("autocmd")
   augroup END
   " ================
 endif " has("autocmd")
+
+" ========================================================================
+" Make YouCompleteMe work and point at the real goddamn python bin
+" ========================================================================
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
