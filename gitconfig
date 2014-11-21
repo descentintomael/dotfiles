@@ -1,8 +1,10 @@
 [user]
     name = Sean Todd
     email = sean@paynearme.com
+
 [color]
     ui = auto
+
 [alias]
     stat = status
     st = status --short
@@ -29,19 +31,14 @@
     man = help
     pop = stash pop
     cp = cherry-pick
-    switch = !legit switch \"$@\"
-    branches = !legit branches
-    sprout = !legit sprout \"$@\"
-    unpublish = !legit unpublish \"$@\"
-    harvest = !legit harvest \"$@\"
-    sync = !legit sync \"$@\"
-    publish = !legit publish \"$@\"
-    graft = !legit graft \"$@\"
+
 [branch]
     autosetuprebase = always
+
 [mergetool]
     keepBackup = true
     prompt = false
+
 [core]
     excludesfile = ~/.gitignore
     editor = mvim -v
@@ -62,11 +59,14 @@
 
 [color "diff"]
     meta = yellow 
+
 [apply]
     whitespace = nowarn
+
 [github]
     user = descentintomael
 
+# Setup Kaleidoscope as my default diffing tool (because its awesome)
 [difftool "Kaleidoscope"]
    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [mergetool "Kaleidoscope"]
