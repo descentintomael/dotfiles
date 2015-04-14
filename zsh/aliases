@@ -69,3 +69,5 @@ alias rdm="rake db:migrate && rake db:test:clone"
 alias dotv="vim ~/.dotfiles"
 alias dotf="~/.dotfiles"
 
+#MySQL Aliases
+alias mysql="$(brew --prefix mysql)/bin/mysql"
