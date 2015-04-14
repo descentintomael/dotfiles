@@ -28,3 +28,6 @@ gem 'benchmark-ips'
 
 # Used to find dead routes in Rails
 gem 'traceroute'
+
+#Makes all the backtraces pretty
+gem 'pretty_backtrace'
