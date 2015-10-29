@@ -44,3 +44,6 @@ export RUBY_HEAP_SLOTS_INCREMENT=100000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=30000000
 export RUBY_HEAP_FREE_MIN=12500
+
+# Set this so topo burnup doesn't ask for my password
+export TZ=America/Los_Angeles
