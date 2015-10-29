@@ -176,7 +176,7 @@ set laststatus=2 " always show status line
 set colorcolumn=80 " Highlight column 80 so I know when to wrap
 " Change the 80th char column to be grey instead of red
 autocmd ColorScheme * highlight ColorColumn guibg=Gray20
-set guifont=Sauce\ Code\ Powerline\ Light:h12
+set guifont=Hack:h12
 
 function! NumberToggle()
   if(&relativenumber == 1)
