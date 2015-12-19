@@ -37,6 +37,10 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'vim-ruby/vim-ruby'
 
+" Adds in a nice formatter for SQL statements using <leader>sfs
+Plugin 'SQLUtilities'
+Plugin 'Align'
+
 " Adds code snippets
 " Track the engine.
 Plugin 'SirVer/ultisnips'
