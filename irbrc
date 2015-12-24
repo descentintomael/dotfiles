@@ -20,6 +20,13 @@ else
   # nothing to do
 end
 
+if defined?(PryByebug)
+  Pry.commands.alias_command 'c', 'continue'
+  Pry.commands.alias_command 's', 'step'
+  Pry.commands.alias_command 'n', 'next'
+  Pry.commands.alias_command 'f', 'finish'
+end
+
 # annotate column names of an AR model
 def show(obj)
   y(obj.send("column_names"))
