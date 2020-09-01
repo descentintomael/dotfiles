@@ -19,6 +19,8 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 " My bundles
+" Powerline for a fancy status bar
+Plugin 'powerline/powerline'
 " A code completion plugin
 Plugin 'Valloric/YouCompleteMe'
 " A lagnuage senstive commenting plugin.  Access with cmd + /
@@ -52,8 +54,6 @@ Plugin 'ack.vim'
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin for fuzzy file finding
 Plugin 'kien/ctrlp.vim'
-" Makes the status bar all fancy
-Plugin 'bling/vim-airline'
 " Color matching for parens/brackets/etc
 Plugin 'kien/rainbow_parentheses.vim'
 " Tomorrow color theme
@@ -73,7 +73,20 @@ filetype plugin indent on
 " ========================================================================
 " Airline/Powerline stuff
 " ========================================================================
+" Copied these config lines for powerline from:
+" https://oracleyue.github.io/2019/11/07/vim-powerline/
+" require powerline-symbol patched font installed
+" install Roboto Mono given in .vim/fonts/
 let g:airline_powerline_fonts = 1
+" remove empty angle at the end
+let g:airline_skip_empty_sections = 1
+" set airline theme
+"let g:airline_theme='deus'
+" extension for tab line
+let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+set guifont=Roboto\ Mono\ Light\ for\ Powerline:h12
 
 " ========================================================================
 " Rainbow Parentheses stuff
@@ -180,7 +193,6 @@ set laststatus=2 " always show status line
 set colorcolumn=80 " Highlight column 80 so I know when to wrap
 " Change the 80th char column to be grey instead of red
 autocmd ColorScheme * highlight ColorColumn guibg=Gray20
-set guifont=Hack:h12
 
 function! NumberToggle()
   if(&relativenumber == 1)
