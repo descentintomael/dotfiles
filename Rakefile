@@ -1,10 +1,10 @@
 require 'rake'
 
-desc "install the dot files into user's home directory"
+desc "Put all dotfiles in place and install homebrew"
 task :install do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README LICENSE id_dsa.pub].include? file
+    next if %w[Rakefile README LICENSE Brewfile].include? file
     
     if File.exist?(File.join(ENV['HOME'], ".#{file}"))
       if replace_all
@@ -33,7 +33,19 @@ task :install do
   # puts "Moving zshenv to zshrc"
   # system %Q{sudo mv /etc/zshenv /etc/zshrc}
 
-  system %Q{mkdir ~/.tmp}
+  # system %Q{mkdir ~/.tmp}
+
+  # Install Homebrew
+  if system("which brew")
+    print "Homebrew already installed"
+  else
+    print "Installing Homebrew..."
+    system "/bin/bash -c \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)\""
+  end
+
+  # Brew bundle
+  print "Running Homebrew bundler..."
+  system "brew bundle"
 end
 
 def replace_file(file)
