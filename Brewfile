@@ -15,7 +15,7 @@ brew 'nmap'
 brew 'node'
 brew 'rbenv'
 brew 'the_silver_searcher'
-brew 'sqlite
+brew 'sqlite'
 brew 'svn'
 brew 'homebrew/cask-fonts/font-roboto-mono-for-powerline'
 
