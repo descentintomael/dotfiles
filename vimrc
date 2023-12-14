@@ -177,12 +177,8 @@ set undodir=$HOME/.vim/undo
 " -- INTERFACE
 " --------------------
 syntax enable " enable syntax highlighting and allow custom highlighting
-if &term=~'xterm'
-  set background=dark
-  colorscheme solarized
-else
-  colorscheme Tomorrow-Night " Set the color scheme to a pale blue
-endif
+colorscheme Tomorrow-Night " Set the color scheme to a pale blue
+
 set title " set the title to the file name and modification status
 set number
 set relativenumber " show the line numbers relative to current position
