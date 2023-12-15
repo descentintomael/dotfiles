@@ -26,14 +26,16 @@ export GIT_PAGER='less -FRX'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew bundler gem rails3 rake rvm)
+plugins=(git brew bundler gem rails3 rake)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=:$HOME/.rvm/bin:~:/usr/local/git/bin:~/projects/topo/commands:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:$HOME/.rvm/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:/opt/local/bin:/opt/local/sbin:$PATH
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+# Setup rbenv
+eval "$(rbenv init - zsh)"
+
 # Source my custom files after oh-my-zsh so I can override things.
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
