@@ -1,10 +1,10 @@
 # 'brew tap'
-tap "homebrew/cask"
+tap 'homebrew/cask'
 # set arguments for all 'brew cask install' commands
-cask_args appdir: "~/Applications"
+cask_args appdir: '~/Applications'
 
 # 'brew install', always 'brew services restart', 'brew link', 'brew unlink mysql' (if it is installed)
-brew "mysql@5.6", restart_service: true, link: true, conflicts_with: ["mysql"]
+# Don't need MySQL right now brew 'mysql@5.6', restart_service: true, link: true, conflicts_with: ['mysql']
 brew 'git'
 brew 'wget'
 brew 'cloc'
@@ -17,13 +17,17 @@ brew 'rbenv'
 brew 'the_silver_searcher'
 brew 'sqlite'
 brew 'svn'
-brew 'homebrew/cask-fonts/font-roboto-mono-for-powerline'
+# These next ones are necessary to make YouCompleteMe work
+brew 'cmake'
+brew 'python'
+brew 'go'
+brew 'nodejs'
+brew 'java'
+brew 'llvm'
 
-cask "google-chrome"
-cask "firefox"
+cask 'google-chrome'
+cask 'firefox'
 cask 'slack'
-cask 'spotify'
 cask 'evernote'
-cask '1password'
 cask 'bettertouchtool'
 cask 'iterm2'

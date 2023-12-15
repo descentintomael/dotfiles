@@ -46,6 +46,9 @@ task :install do
   # Brew bundle
   print "Running Homebrew bundler..."
   system "brew bundle"
+  # Run this Java thing to make YouCompleteMe happy
+  system "sudo ln -sfn $(brew --prefix java)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk"
+  system "cd ~/.dotfiles/vim/bundle/YouCompleteMe; EXTRA_CMAKE_ARGS='-DPATH_TO_LLVM_ROOT=/opt/homebrew/opt/llvm' ./install.py --system-libclang --all"
 end
 
 def replace_file(file)

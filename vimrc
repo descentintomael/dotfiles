@@ -480,5 +480,7 @@ endif " has("autocmd")
 " ========================================================================
 " Make YouCompleteMe work and point at the real goddamn python bin
 " ========================================================================
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = trim(system('which python3'))
+" Use homebrew's clangd
+let g:ycm_clangd_binary_path = trim(system('brew --prefix llvm')).'/bin/clangd'
 
