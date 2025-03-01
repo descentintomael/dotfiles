@@ -78,3 +78,5 @@
    prompt = false
 [merge]
    tool = Kaleidoscope
+[init]
+	defaultBranch = main
