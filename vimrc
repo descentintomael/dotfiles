@@ -66,6 +66,9 @@ Plugin 'endwise.vim'
 Plugin 'ngmy/vim-rubocop'
 let g:vimrubocop_keymap = 0 " Don't auto map keyboard shortcuts
 
+" Highlight section of code currently being edited
+Plugin 'junegunn/limelight'
+
 " All plugins must go before this:
 call vundle#end()
 filetype plugin indent on
