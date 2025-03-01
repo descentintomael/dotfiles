@@ -1,0 +1,89 @@
+body {
+  margin: 5%;
+  font-family: serif;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: sans-serif;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.3em; }
+h3 { font-size: 1.1em; }
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+code {
+  font-family: monospace;
+  background-color: #f8f8f8;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  padding: 1em;
+  overflow-x: auto;
+  border-radius: 5px;
+}
+
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1em;
+  color: #666;
+  margin-left: 0;
+}
+
+.footnote {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Footnotes/Endnotes styling */
+.footnotes {
+  margin-top: 2em;
+  border-top: 1px solid #ddd;
+  padding-top: 1em;
+}
+
+.footnote-back {
+  font-size: 0.8em;
+  margin-left: 0.5em;
+}
+
+a.footnote-ref {
+  vertical-align: super;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: #0066cc;
+}
+
+/* Section for endnotes */
+#references-and-notes {
+  page-break-before: always;
+}
+
+/* Special styling for the References section */
+section.footnotes {
+  margin-top: 2em;
+  padding-top: 1em;
+}
+
+section.footnotes hr {
+  display: none;
+}
+
+section.footnotes ol {
+  padding-left: 1.5em;
+}
+
+section.footnotes li {
+  margin-bottom: 0.5em;
+}
