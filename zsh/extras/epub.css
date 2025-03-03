@@ -1,89 +1,127 @@
 body {
-  margin: 5%;
-  font-family: serif;
-  font-size: 1em;
-  line-height: 1.5;
+    font-family: Baskerville, "Libre Baskerville", Georgia, serif;
+    line-height: 1.5;
+    margin: 5%;
+    padding: 0;
+    text-align: justify;
 }
 
+/* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: sans-serif;
-  margin-top: 2em;
-  margin-bottom: 1em;
+    font-family: "Gill Sans", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
 }
 
 h1 { font-size: 1.5em; }
 h2 { font-size: 1.3em; }
 h3 { font-size: 1.1em; }
 
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
-code {
-  font-family: monospace;
-  background-color: #f8f8f8;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
+/* Code blocks */
+code, pre {
+    font-family: "Andale Mono", Consolas, monospace;
+    font-size: 0.9em;
+    background-color: #f5f5f5;
+    border-radius: 3px;
 }
 
 pre {
-  background-color: #f8f8f8;
-  padding: 1em;
-  overflow-x: auto;
-  border-radius: 5px;
+    padding: 0.5em;
+    overflow-x: auto;
 }
 
-blockquote {
-  border-left: 4px solid #ddd;
-  padding-left: 1em;
-  color: #666;
-  margin-left: 0;
+/* Links - set to olive color */
+a {
+    color: olive;
+    text-decoration: none;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+/* Footnotes */
 .footnote {
-  font-size: 0.9em;
-  color: #555;
+    font-size: 0.9em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+.footnotes {
+    border-top: 1px solid #ddd;
+    margin-top: 2em;
+    padding-top: 1em;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1em 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.5em;
+}
+
+th {
+    background-color: #f5f5f5;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #ddd;
+    margin-left: 0;
+    padding-left: 1em;
+    color: #666;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Footnotes/Endnotes styling */
 .footnotes {
-  margin-top: 2em;
-  border-top: 1px solid #ddd;
-  padding-top: 1em;
+    margin-top: 2em;
+    border-top: 1px solid #ddd;
+    padding-top: 1em;
 }
 
 .footnote-back {
-  font-size: 0.8em;
-  margin-left: 0.5em;
+    font-size: 0.8em;
+    margin-left: 0.5em;
 }
 
 a.footnote-ref {
-  vertical-align: super;
-  font-size: 0.8em;
-  text-decoration: none;
-  color: #0066cc;
+    vertical-align: super;
+    font-size: 0.8em;
+    text-decoration: none;
+    color: #0066cc;
 }
 
 /* Section for endnotes */
 #references-and-notes {
-  page-break-before: always;
+    page-break-before: always;
 }
 
 /* Special styling for the References section */
 section.footnotes {
-  margin-top: 2em;
-  padding-top: 1em;
+    margin-top: 2em;
+    padding-top: 1em;
 }
 
 section.footnotes hr {
-  display: none;
+    display: none;
 }
 
 section.footnotes ol {
-  padding-left: 1.5em;
+    padding-left: 1.5em;
 }
 
 section.footnotes li {
-  margin-bottom: 0.5em;
+    margin-bottom: 0.5em;
 }
