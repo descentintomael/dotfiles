@@ -83,4 +83,4 @@ if [[ -n "$TMUX" ]]; then
 fi
 
 # Source md2epub function
-source ~/.zsh/extras/md2epub.zsh
+source ~/.zsh/extras/md2pdf.zsh
