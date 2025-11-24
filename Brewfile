@@ -20,6 +20,15 @@ brew 'sqlite'
 brew 'svn'
 brew 'bat'
 
+# Modern CLI tools
+brew 'fzf'        # Fuzzy finder for files, history, everything
+brew 'eza'        # Modern ls replacement with icons and git status
+brew 'zoxide'     # Smart cd with frecency
+brew 'starship'   # Fast, customizable prompt
+brew 'delta'      # Better git diffs with syntax highlighting
+brew 'direnv'     # Auto-load .envrc per project
+brew 'sheldon'    # Fast, configurable shell plugin manager
+
 # Development tools
 brew 'cmake'
 brew 'python'

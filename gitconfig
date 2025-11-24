@@ -33,8 +33,27 @@
     pop = stash pop
     cp = cherry-pick
 
+    # Modern workflow aliases
+    amend = commit --amend --no-edit
+    fixup = commit --fixup
+    undo = reset HEAD~1 --mixed
+    unstage = reset HEAD --
+    aliases = !git config --get-regexp alias | sort
+    recent = branch --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
+
 [branch]
     autosetuprebase = always
+
+[rebase]
+    autoSquash = true
+    autoStash = true
+
+[fetch]
+    prune = true
+
+[push]
+    default = current
+    autoSetupRemote = true
 
 [mergetool]
     keepBackup = true
@@ -78,3 +97,16 @@
    tool = Kaleidoscope
 [init]
 	defaultBranch = main
+
+# Delta - better diff viewer
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+    syntax-theme = Dracula

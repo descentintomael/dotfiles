@@ -1,7 +1,7 @@
 require 'rake'
 require 'fileutils'
 
-EXCLUDED_FILES = %w[Rakefile README.rdoc LICENSE Brewfile nvim gitconfig.local.template zshrc.local.template].freeze
+EXCLUDED_FILES = %w[Rakefile README.rdoc LICENSE Brewfile nvim sheldon starship.toml gitconfig.local.template zshrc.local.template].freeze
 
 desc "Put all dotfiles in place and install homebrew"
 task :install do
@@ -16,11 +16,23 @@ task :install do
   # Setup Neovim config directory
   setup_neovim_config
 
+  # Setup modern tool configs (sheldon, starship)
+  setup_modern_tools
+
   # Install Homebrew and packages
   setup_homebrew
 
+  # Initialize sheldon plugins
+  setup_sheldon_plugins
+
   puts "\n=== Installation Complete ===\n"
-  puts "Run 'nvim' to install plugins automatically."
+  puts "New shell features:"
+  puts "  - Use 'z' for smart directory jumping (learns your habits)"
+  puts "  - Press Ctrl+R for fuzzy history search (fzf)"
+  puts "  - 'ls' now shows icons and git status (eza)"
+  puts "  - Git diffs are syntax highlighted (delta)"
+  puts ""
+  puts "Run 'nvim' to install editor plugins automatically."
   puts "Restart your terminal or run 'source ~/.zshrc' to apply changes.\n\n"
 end
 
@@ -149,6 +161,61 @@ def setup_neovim_config
   else
     system %Q{ln -s "#{nvim_source}" "#{nvim_link}"}
     puts "linked ~/.config/nvim"
+  end
+end
+
+def setup_modern_tools
+  puts "\n--- Setting up Modern Tools ---"
+
+  config_dir = File.join(ENV['HOME'], '.config')
+  FileUtils.mkdir_p(config_dir) unless File.directory?(config_dir)
+
+  # Sheldon (plugin manager)
+  sheldon_config_dir = File.join(config_dir, 'sheldon')
+  sheldon_source = File.join(Dir.pwd, 'sheldon')
+
+  if File.exist?(sheldon_config_dir) || File.symlink?(sheldon_config_dir)
+    print "overwrite ~/.config/sheldon? [yn] "
+    if $stdin.gets.chomp == 'y'
+      FileUtils.rm_rf(sheldon_config_dir)
+      system %Q{ln -s "#{sheldon_source}" "#{sheldon_config_dir}"}
+      puts "linked ~/.config/sheldon"
+    else
+      puts "skipping ~/.config/sheldon"
+    end
+  else
+    system %Q{ln -s "#{sheldon_source}" "#{sheldon_config_dir}"}
+    puts "linked ~/.config/sheldon"
+  end
+
+  # Starship (prompt)
+  starship_link = File.join(config_dir, 'starship.toml')
+  starship_source = File.join(Dir.pwd, 'starship.toml')
+
+  if File.exist?(starship_link) || File.symlink?(starship_link)
+    print "overwrite ~/.config/starship.toml? [yn] "
+    if $stdin.gets.chomp == 'y'
+      FileUtils.rm_rf(starship_link)
+      system %Q{ln -s "#{starship_source}" "#{starship_link}"}
+      puts "linked ~/.config/starship.toml"
+    else
+      puts "skipping ~/.config/starship.toml"
+    end
+  else
+    system %Q{ln -s "#{starship_source}" "#{starship_link}"}
+    puts "linked ~/.config/starship.toml"
+  end
+end
+
+def setup_sheldon_plugins
+  puts "\n--- Installing Shell Plugins ---"
+
+  if system("which sheldon > /dev/null 2>&1")
+    puts "Initializing sheldon plugins (this may take a moment)..."
+    system "sheldon lock"
+    puts "Sheldon plugins installed"
+  else
+    puts "Sheldon not yet installed - will be configured after 'brew bundle'"
   end
 end
 
