@@ -10,3 +10,4 @@ zshrc.local
 
 # Credential files
 .cloudapp
+.claude/
