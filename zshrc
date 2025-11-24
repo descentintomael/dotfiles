@@ -46,6 +46,12 @@ export PATH="/opt/homebrew/opt/bc/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # ============================================================================
+# Completion System (must be before sheldon for compdef)
+# ============================================================================
+autoload -Uz compinit
+compinit -i
+
+# ============================================================================
 # Shell Plugin Manager (sheldon)
 # ============================================================================
 if command -v sheldon &> /dev/null; then
@@ -80,13 +86,6 @@ fi
 if command -v rbenv &> /dev/null; then
     eval "$(rbenv init - zsh)"
 fi
-
-# ============================================================================
-# Completion System
-# ============================================================================
-# Initialize zsh completion system (required for compdef)
-autoload -Uz compinit
-compinit -i
 
 # ============================================================================
 # Custom Configuration
