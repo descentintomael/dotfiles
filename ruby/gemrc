@@ -1,0 +1,20 @@
+# =============================================================================
+# Gem Configuration
+# =============================================================================
+# RubyGems configuration for gem install/update.
+# Symlinked to: ~/.gemrc
+#
+# Key settings:
+#   - Skip documentation generation (--no-ri --no-rdoc)
+#   - Verbose output enabled
+# =============================================================================
+
+---
+:sources: 
+- http://rubygems.org
+:benchmark: false
+:update_sources: true
+:backtrace: false
+gem: --no-ri --no-rdoc
+:bulk_threshold: 1000
+:verbose: true

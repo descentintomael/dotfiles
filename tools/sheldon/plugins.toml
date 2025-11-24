@@ -1,0 +1,55 @@
+# =============================================================================
+# Sheldon Plugin Configuration
+# =============================================================================
+# Fast, declarative shell plugin manager.
+# Docs: https://sheldon.cli.rs/
+# Symlinked to: ~/.config/sheldon/plugins.toml
+#
+# Plugins loaded:
+#   - zsh-completions      - Additional completions
+#   - zsh-autosuggestions  - History-based suggestions
+#   - fast-syntax-highlighting - Real-time syntax highlighting
+#   - fzf-tab              - Fuzzy completion menu
+#   - oh-my-zsh git        - Git aliases and completions
+#   - oh-my-zsh bundler    - Bundle exec shortcuts
+#   - oh-my-zsh rake       - Rake task completion
+#
+# Update plugins: sheldon lock --update
+# =============================================================================
+
+shell = "zsh"
+
+# Zsh completions - load first
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+# Autosuggestions - history-based suggestions
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
+
+# Fast syntax highlighting (4x faster than zsh-syntax-highlighting)
+[plugins.fast-syntax-highlighting]
+github = "zdharma-continuum/fast-syntax-highlighting"
+
+# fzf-tab - use fzf for completions
+[plugins.fzf-tab]
+github = "Aloxaf/fzf-tab"
+
+# Git plugin from oh-my-zsh
+[plugins.ohmyzsh-git]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/git"
+use = ["git.plugin.zsh"]
+
+# Bundler plugin from oh-my-zsh
+[plugins.ohmyzsh-bundler]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/bundler"
+use = ["bundler.plugin.zsh"]
+
+# Rake plugin from oh-my-zsh
+[plugins.ohmyzsh-rake]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/rake"
+use = ["rake.plugin.zsh"]

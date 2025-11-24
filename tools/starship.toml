@@ -1,0 +1,81 @@
+# =============================================================================
+# Starship Prompt Configuration
+# =============================================================================
+# Cross-shell prompt with minimal, fast configuration.
+# Styled to match previous sean.zsh-theme: ➜ [ruby] ±(branch) ✗
+#
+# Docs: https://starship.rs/config/
+# Symlinked to: ~/.config/starship.toml
+# =============================================================================
+
+# Don't add newline at start of prompt
+add_newline = false
+
+# Timeout for commands (ms)
+command_timeout = 500
+
+# Custom format matching old theme: ➜ [ruby] ±(branch) ✗
+format = """
+[➜](bold red) \
+$ruby\
+$git_branch\
+$custom\
+$character"""
+
+# Right prompt - show directory (like old project_prompt)
+right_format = """$directory"""
+
+# Directory (right side) - truncate smartly
+[directory]
+style = "white"
+truncation_length = 4
+truncate_to_repo = false
+# Replace ~/projects/ with shorter path
+[directory.substitutions]
+"~/projects" = ""
+"~" = "~"
+
+# Git branch - matches old ±(branch) style
+[git_branch]
+style = "blue"
+format = "[±\\(](blue)[$branch](bold red)[\\)](blue) "
+
+# Git dirty indicator - single yellow ✗ for any dirty state (matches old theme)
+[custom.git_dirty]
+command = "echo '✗'"
+when = "git status --porcelain 2>/dev/null | grep -q ."
+style = "bold yellow"
+format = "[$output]($style)"
+
+# Disable default git_status (using custom.git_dirty instead)
+[git_status]
+disabled = true
+
+# Ruby (rbenv) - bold yellow like old RVM prompt
+[ruby]
+style = "bold yellow"
+format = "[$version]($style) "
+detect_files = ["Gemfile", ".ruby-version"]
+detect_extensions = ["rb"]
+detect_folders = []
+
+# Prompt character - minimal, just space after the info
+[character]
+success_symbol = ""
+error_symbol = "[✗](bold red)"
+
+# Disable modules we don't need
+[nodejs]
+disabled = true
+
+[python]
+disabled = true
+
+[java]
+disabled = true
+
+[package]
+disabled = true
+
+[cmd_duration]
+disabled = true

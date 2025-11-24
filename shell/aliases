@@ -1,0 +1,97 @@
+# =============================================================================
+# Shell Aliases
+# =============================================================================
+# Modern CLI tool replacements and workflow shortcuts.
+# Sourced by: shell/zshrc
+#
+# Key aliases:
+#   ls, ll, la, tree  - eza (modern ls with icons)
+#   z <path>          - zoxide (smart cd)
+#   vi, vim           - neovim
+#   s, d, a           - git status, diff, add
+#   dotf, dotv        - cd/edit dotfiles
+# =============================================================================
+
+# ============================================================================
+# Modern CLI Tool Aliases
+# ============================================================================
+
+# eza - modern ls replacement (if installed, falls back to ls)
+if command -v eza &> /dev/null; then
+    alias ls="eza --color=auto --icons"
+    alias l="eza --icons"
+    alias ll="eza -la --icons"
+    alias la="eza -la --icons"
+    alias lah="eza -lah --icons"
+    alias tree="eza --tree --icons"
+else
+    alias l="ls"
+    alias la="ls -la"
+    alias lah="ls -lah"
+fi
+
+# ripgrep - modern grep replacement
+alias ark="rg -t ruby"
+
+# zoxide aliases (z and zi are added automatically)
+# Use 'z' for smart cd, 'zi' for interactive selection
+
+# ============================================================================
+# Editor Aliases
+# ============================================================================
+
+# Neovim
+alias vi='nvim'
+alias vim='nvim'
+
+# Dotfiles quick access
+alias dotv="nvim ~/.dotfiles"
+alias dotf="cd ~/.dotfiles"
+
+# ============================================================================
+# Log Watching
+# ============================================================================
+
+alias tf='tail -f'
+alias tfd='tf log/development.log'
+alias tft='tf log/test.log'
+
+# ============================================================================
+# Git Aliases (supplements sheldon git plugin)
+# ============================================================================
+
+alias gpush='git push origin HEAD'
+alias ci="git ci"
+alias ca="git cia"
+alias s="git st"
+alias d="git diff"
+alias a="git add"
+alias dca="d --cached"
+alias pp="git stash && git pull && git pop"
+alias myco="git log --author=me"
+alias co="git checkout"
+alias clean="git clean -fxd"
+
+# Git index management
+alias skip="git update-index --assume-unchanged"
+alias noskip="git update-index --no-assume-unchanged"
+
+# ============================================================================
+# Rails/Ruby Aliases
+# ============================================================================
+
+alias rdm="rake db:migrate && rake db:test:clone"
+
+# ============================================================================
+# Tool Overrides
+# ============================================================================
+
+# Brew ctags override
+alias ctags="$(brew --prefix)/bin/ctags"
+
+# ============================================================================
+# Directory Shortcuts
+# ============================================================================
+
+# Research folder
+alias sga="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Smart\ Growth\ Advocates"

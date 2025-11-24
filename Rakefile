@@ -1,28 +1,53 @@
+# =============================================================================
+# Dotfiles Installation Script
+# =============================================================================
+# Installs symlinks for all configuration files and sets up Homebrew packages.
+#
+# Usage:
+#   rake install     - Full installation with interactive prompts
+#   rake symlinks    - Only create symlinks (no brew, no prompts)
+#
+# Directory Structure:
+#   shell/     → Shell configs (zshrc, aliases, functions)
+#   editor/    → Neovim configuration
+#   git/       → Git configuration
+#   tools/     → Modern CLI tool configs (starship, sheldon)
+#   ruby/      → Ruby development configs (irbrc, gemrc, railsrc)
+#   templates/ → Local config templates (not symlinked)
+#   themes/    → Terminal themes (not symlinked)
+# =============================================================================
+
 require 'rake'
 require 'fileutils'
 
-EXCLUDED_FILES = %w[Rakefile README.rdoc LICENSE Brewfile nvim sheldon starship.toml gitconfig.local.template zshrc.local.template].freeze
+# Explicit symlink mapping: source (relative to repo) => target (absolute)
+SYMLINKS = {
+  # Shell configuration → ~/.*
+  'shell/zshrc'   => File.join(ENV['HOME'], '.zshrc'),
+  'shell/zlogin'  => File.join(ENV['HOME'], '.zlogin'),
+
+  # Git configuration → ~/.*
+  'git/config'    => File.join(ENV['HOME'], '.gitconfig'),
+  'git/ignore'    => File.join(ENV['HOME'], '.gitignore'),
+
+  # Ruby configuration → ~/.*
+  'ruby/irbrc'    => File.join(ENV['HOME'], '.irbrc'),
+  'ruby/gemrc'    => File.join(ENV['HOME'], '.gemrc'),
+  'ruby/railsrc'  => File.join(ENV['HOME'], '.railsrc'),
+
+  # ~/.config/ targets
+  'editor/nvim'        => File.join(ENV['HOME'], '.config', 'nvim'),
+  'tools/starship.toml' => File.join(ENV['HOME'], '.config', 'starship.toml'),
+  'tools/sheldon'      => File.join(ENV['HOME'], '.config', 'sheldon'),
+}.freeze
 
 desc "Put all dotfiles in place and install homebrew"
 task :install do
   puts "\n=== Dotfiles Installation ===\n\n"
 
-  # Setup local configuration files first (with sensitive data)
   setup_local_configs
-
-  # Symlink dotfiles
   setup_symlinks
-
-  # Setup Neovim config directory
-  setup_neovim_config
-
-  # Setup modern tool configs (sheldon, starship)
-  setup_modern_tools
-
-  # Install Homebrew and packages
   setup_homebrew
-
-  # Initialize sheldon plugins
   setup_sheldon_plugins
 
   puts "\n=== Installation Complete ===\n"
@@ -35,6 +60,17 @@ task :install do
   puts "Run 'nvim' to install editor plugins automatically."
   puts "Restart your terminal or run 'source ~/.zshrc' to apply changes.\n\n"
 end
+
+desc "Only create symlinks (no brew, no prompts for local configs)"
+task :symlinks do
+  puts "\n=== Creating Symlinks ===\n\n"
+  setup_symlinks(interactive: false)
+  puts "\n=== Done ===\n"
+end
+
+# -----------------------------------------------------------------------------
+# Local Configuration Setup
+# -----------------------------------------------------------------------------
 
 def setup_local_configs
   puts "--- Git Configuration ---"
@@ -56,7 +92,7 @@ def setup_gitconfig_local
   name = $stdin.gets.chomp
 
   if name.empty?
-    puts "Skipping git configuration. You can set it up later by copying gitconfig.local.template"
+    puts "Skipping git configuration. You can set it up later by copying templates/gitconfig.local.template"
     return
   end
 
@@ -106,118 +142,65 @@ def setup_zshrc_local
   puts "Created ~/.zshrc.local"
 end
 
-def setup_symlinks
-  puts "\n--- Setting up symlinks ---"
+# -----------------------------------------------------------------------------
+# Symlink Setup
+# -----------------------------------------------------------------------------
 
-  replace_all = false
-  Dir['*'].each do |file|
-    next if EXCLUDED_FILES.include?(file)
-    next if file.end_with?('.template')
+def setup_symlinks(interactive: true)
+  puts "--- Setting up symlinks ---\n\n"
 
-    home_file = File.join(ENV['HOME'], ".#{file}")
-
-    if File.exist?(home_file) || File.symlink?(home_file)
-      if replace_all
-        replace_file(file)
-      else
-        print "overwrite ~/.#{file}? [ynaq] "
-        case $stdin.gets.chomp
-        when 'a'
-          replace_all = true
-          replace_file(file)
-        when 'y'
-          replace_file(file)
-        when 'q'
-          exit
-        else
-          puts "skipping ~/.#{file}"
-        end
-      end
-    else
-      link_file(file)
-    end
-  end
-end
-
-def setup_neovim_config
-  puts "\n--- Setting up Neovim ---"
-
-  nvim_config_dir = File.join(ENV['HOME'], '.config')
-  nvim_link = File.join(nvim_config_dir, 'nvim')
-  nvim_source = File.join(Dir.pwd, 'nvim')
-
-  # Create ~/.config if it doesn't exist
-  FileUtils.mkdir_p(nvim_config_dir) unless File.directory?(nvim_config_dir)
-
-  if File.exist?(nvim_link) || File.symlink?(nvim_link)
-    print "overwrite ~/.config/nvim? [yn] "
-    if $stdin.gets.chomp == 'y'
-      FileUtils.rm_rf(nvim_link)
-      system %Q{ln -s "#{nvim_source}" "#{nvim_link}"}
-      puts "linked ~/.config/nvim"
-    else
-      puts "skipping ~/.config/nvim"
-    end
-  else
-    system %Q{ln -s "#{nvim_source}" "#{nvim_link}"}
-    puts "linked ~/.config/nvim"
-  end
-end
-
-def setup_modern_tools
-  puts "\n--- Setting up Modern Tools ---"
-
+  # Ensure ~/.config exists
   config_dir = File.join(ENV['HOME'], '.config')
   FileUtils.mkdir_p(config_dir) unless File.directory?(config_dir)
 
-  # Sheldon (plugin manager)
-  sheldon_config_dir = File.join(config_dir, 'sheldon')
-  sheldon_source = File.join(Dir.pwd, 'sheldon')
+  replace_all = false
 
-  if File.exist?(sheldon_config_dir) || File.symlink?(sheldon_config_dir)
-    print "overwrite ~/.config/sheldon? [yn] "
-    if $stdin.gets.chomp == 'y'
-      FileUtils.rm_rf(sheldon_config_dir)
-      system %Q{ln -s "#{sheldon_source}" "#{sheldon_config_dir}"}
-      puts "linked ~/.config/sheldon"
-    else
-      puts "skipping ~/.config/sheldon"
+  SYMLINKS.each do |source, target|
+    source_path = File.join(Dir.pwd, source)
+
+    unless File.exist?(source_path)
+      puts "WARNING: Source not found: #{source}"
+      next
     end
-  else
-    system %Q{ln -s "#{sheldon_source}" "#{sheldon_config_dir}"}
-    puts "linked ~/.config/sheldon"
-  end
 
-  # Starship (prompt)
-  starship_link = File.join(config_dir, 'starship.toml')
-  starship_source = File.join(Dir.pwd, 'starship.toml')
-
-  if File.exist?(starship_link) || File.symlink?(starship_link)
-    print "overwrite ~/.config/starship.toml? [yn] "
-    if $stdin.gets.chomp == 'y'
-      FileUtils.rm_rf(starship_link)
-      system %Q{ln -s "#{starship_source}" "#{starship_link}"}
-      puts "linked ~/.config/starship.toml"
+    if File.exist?(target) || File.symlink?(target)
+      if replace_all || !interactive
+        replace_symlink(source_path, target)
+      else
+        print "overwrite #{target}? [ynaq] "
+        case $stdin.gets.chomp
+        when 'a'
+          replace_all = true
+          replace_symlink(source_path, target)
+        when 'y'
+          replace_symlink(source_path, target)
+        when 'q'
+          exit
+        else
+          puts "skipping #{target}"
+        end
+      end
     else
-      puts "skipping ~/.config/starship.toml"
+      create_symlink(source_path, target)
     end
-  else
-    system %Q{ln -s "#{starship_source}" "#{starship_link}"}
-    puts "linked ~/.config/starship.toml"
   end
 end
 
-def setup_sheldon_plugins
-  puts "\n--- Installing Shell Plugins ---"
-
-  if system("which sheldon > /dev/null 2>&1")
-    puts "Initializing sheldon plugins (this may take a moment)..."
-    system "sheldon lock"
-    puts "Sheldon plugins installed"
-  else
-    puts "Sheldon not yet installed - will be configured after 'brew bundle'"
-  end
+def replace_symlink(source, target)
+  FileUtils.rm_rf(target)
+  create_symlink(source, target)
 end
+
+def create_symlink(source, target)
+  # Ensure parent directory exists
+  FileUtils.mkdir_p(File.dirname(target))
+  system %Q{ln -s "#{source}" "#{target}"}
+  puts "linked #{target}"
+end
+
+# -----------------------------------------------------------------------------
+# Homebrew & Sheldon Setup
+# -----------------------------------------------------------------------------
 
 def setup_homebrew
   puts "\n--- Setting up Homebrew ---"
@@ -237,13 +220,14 @@ def setup_homebrew
   system "sudo ln -sfn $(brew --prefix java)/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk 2>/dev/null || true"
 end
 
-def replace_file(file)
-  home_file = File.join(ENV['HOME'], ".#{file}")
-  FileUtils.rm_rf(home_file)
-  link_file(file)
-end
+def setup_sheldon_plugins
+  puts "\n--- Installing Shell Plugins ---"
 
-def link_file(file)
-  puts "linking ~/.#{file}"
-  system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
+  if system("which sheldon > /dev/null 2>&1")
+    puts "Initializing sheldon plugins (this may take a moment)..."
+    system "sheldon lock"
+    puts "Sheldon plugins installed"
+  else
+    puts "Sheldon not yet installed - will be configured after 'brew bundle'"
+  end
 end
