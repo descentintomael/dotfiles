@@ -1,0 +1,15 @@
+# ZSH Local Configuration
+# Copy this file to ~/.zshrc.local and fill in your details
+# This file is sourced by zshrc and should NOT be committed
+
+# AWS Configuration (uncomment and set if needed)
+# export AWS_PROFILE=your_profile_name
+
+# SSH Agent (uncomment if you need to add keys on shell startup)
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/your_key.pem
+
+# Machine-specific PATH additions
+# export PATH="$PATH:/your/custom/path"
+
+# Any other machine-specific configuration goes here

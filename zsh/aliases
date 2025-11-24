@@ -5,15 +5,9 @@ alias tf='tail -f'
 alias tfd='tf log/development.log'
 alias tft='tf log/test.log'
 
-# MacVim has a horrible bug where it breaks when I switch from
-# external monitor to no monitor.  The fix is to delete its
-# preference files.  This happens just about every damn day so
-# here is a goddamn alias for it
-alias fuck_mvim='rm ~/Library/Preferences/org.vim.*'
-
-# Override system vi/vim, the override option in brew isn't working
-alias vi='mvim -v'
-alias vim='vi'
+# Override system vi/vim with neovim
+alias vi='nvim'
+alias vim='nvim'
 
 # Brew doesn't properly override ctags
 alias ctags="`brew --prefix`/bin/ctags"
@@ -62,7 +56,6 @@ alias co="git checkout"
 alias clean="git clean -fxd"
 
 # Rails/Ruby related aliases
-alias user="rake db:create_user[\"Sean\",\"sean@paynearme.com\"]"
 alias rdm="rake db:migrate && rake db:test:clone"
 
 # Dotfiles folder aliases
@@ -71,3 +64,6 @@ alias dotf="~/.dotfiles"
 
 #MySQL Aliases
 alias mysql="$(brew --prefix mysql)/bin/mysql"
+
+# Research folder for smart growth activists
+alias sga="~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Smart\ Growth\ Advocates"

@@ -31,7 +31,7 @@ plugins=(git brew bundler gem rails3 rake)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=:/opt/homebrew/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:/opt/local/bin:/opt/local/sbin:$PATH
 
 # Setup rbenv
 eval "$(rbenv init - zsh)"
@@ -40,20 +40,8 @@ eval "$(rbenv init - zsh)"
 source $HOME/.dotfiles/zsh/aliases
 source $HOME/.dotfiles/zsh/functions
 
-# Fix up the Ruby GC to make it faster
-export RUBY_GC_HEAP_INIT_SLOTS=1250000
-export RUBY_HEAP_SLOTS_INCREMENT=100000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=30000000
-export RUBY_HEAP_FREE_MIN=12500
-
 # Set this so topo burnup doesn't ask for my password
 export TZ=America/Los_Angeles
-
-# Setup variables for Sonar Qube
-# export SONAR_HOME=/opt/homebrew/Cellar/sonar-scanner/5.0.1.3006/libexec/
-# export SONAR=$SONAR_HOME/bin
-# export PATH=$SONAR:$PATH
 
 # Sublime text
 export SUBLIME_BIN=/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
@@ -68,12 +56,6 @@ if [[ $PWD == "$HOME/Projects/custom_models" ]]; then
     source "$HOME/Projects/custom_models/.deploy_cf.zsh"
 fi
 
-# Add AWS key to SSH agent
-# eval "$(ssh-agent -s)"
-# ssh-add ~/.ssh/sean_laptop.pem
-#AWS SSO Profile
-export AWS_PROFILE=aws_profile
-
 # Use the homebrew version of the bc utility.
 export PATH="/opt/homebrew/opt/bc/bin:$PATH"
 
@@ -84,3 +66,13 @@ fi
 
 # Source md2epub function
 source ~/.zsh/extras/md2pdf.zsh
+
+# Add visual studio code integration
+[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# Created by `pipx` on 2025-10-15 23:33:02
+export PATH="$PATH:/Users/seantodd/.local/bin"
+
+# Source local configuration (machine-specific settings, credentials)
+# This file is created during installation and should NOT be committed
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

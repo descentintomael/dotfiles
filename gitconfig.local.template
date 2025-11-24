@@ -1,0 +1,11 @@
+# Git Local Configuration
+# Copy this file to ~/.gitconfig.local and fill in your details
+# This file is sourced by gitconfig and should NOT be committed
+
+[user]
+    name = YOUR_NAME
+    email = YOUR_EMAIL
+
+# Optional: Add any machine-specific git settings below
+# [credential]
+#     helper = osxkeychain

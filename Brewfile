@@ -1,5 +1,3 @@
-# 'brew tap'
-tap 'homebrew/cask'
 # set arguments for all 'brew cask install' commands
 cask_args appdir: '~/Applications'
 
@@ -10,7 +8,9 @@ brew 'wget'
 brew 'cloc'
 brew 'dos2unix'
 brew 'jq'
-brew 'macvim'
+brew 'neovim'
+brew 'ripgrep'
+brew 'fd'
 brew 'nmap'
 brew 'node'
 brew 'rbenv'
@@ -18,17 +18,17 @@ brew 'ruby-build'
 brew 'the_silver_searcher'
 brew 'sqlite'
 brew 'svn'
-# These next ones are necessary to make YouCompleteMe work
+brew 'bat'
+
+# Development tools
 brew 'cmake'
 brew 'python'
 brew 'go'
-brew 'nodejs'
 brew 'java'
-brew 'llvm'
 
 cask 'google-chrome'
 cask 'firefox'
 cask 'slack'
-cask 'evernote'
 cask 'bettertouchtool'
-cask 'iterm2'
+# Uncomment this line if you are installing this from regular Terminal
+# cask 'iterm2'

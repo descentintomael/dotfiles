@@ -2,3 +2,11 @@
 vim/.netrwhist
 vim/bundle
 vim/doc/tags-ja
+
+# Local configuration files (contain sensitive data)
+*.local
+gitconfig.local
+zshrc.local
+
+# Credential files
+.cloudapp
