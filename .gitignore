@@ -1,7 +1,7 @@
 *.swp
-vim/.netrwhist
-vim/bundle
-vim/doc/tags-ja
+
+# Personal learning guide (not shared)
+LEARNING_GUIDE.md
 
 # Local configuration files (contain sensitive data)
 *.local
@@ -11,3 +11,4 @@ zshrc.local
 # Credential files
 .cloudapp
 .claude/
+editor/nvim/lazy-lock.json

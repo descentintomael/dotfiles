@@ -82,16 +82,24 @@ require("lazy").setup({
     config = function()
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "solargraph" },
+        -- Only auto-install lua_ls; solargraph installed on-demand
+        ensure_installed = { "lua_ls" },
       })
+
+      -- Suppress lspconfig deprecation warning (v3 API change coming)
+      local orig_deprecate = vim.deprecate
+      ---@diagnostic disable-next-line: duplicate-set-field
+      vim.deprecate = function(name, alternative, version, plugin, backtrace)
+        if plugin and plugin:match("lspconfig") then
+          return
+        end
+        return orig_deprecate(name, alternative, version, plugin, backtrace)
+      end
 
       local lspconfig = require("lspconfig")
       local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-      -- Ruby (solargraph)
-      lspconfig.solargraph.setup({ capabilities = capabilities })
-
-      -- Lua
+      -- Lua (always available via Mason)
       lspconfig.lua_ls.setup({
         capabilities = capabilities,
         settings = {
@@ -100,6 +108,17 @@ require("lazy").setup({
           },
         },
       })
+
+      -- Ruby (solargraph) - only if installed
+      -- Install via :MasonInstall solargraph or gem install solargraph
+      if vim.fn.executable("solargraph") == 1 then
+        lspconfig.solargraph.setup({ capabilities = capabilities })
+      end
+
+      -- Restore original deprecate after setup
+      vim.defer_fn(function()
+        vim.deprecate = orig_deprecate
+      end, 100)
     end,
   },
 
