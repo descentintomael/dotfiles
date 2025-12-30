@@ -39,7 +39,7 @@ opt.history = 500
 opt.undolevels = 150
 opt.undoreload = 200
 opt.undofile = true
-opt.undodir = vim.fn.expand("~/.vim/undo")
+opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 -- Feedback
 opt.showmatch = true

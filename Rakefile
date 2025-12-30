@@ -35,6 +35,9 @@ SYMLINKS = {
   'ruby/gemrc'    => File.join(ENV['HOME'], '.gemrc'),
   'ruby/railsrc'  => File.join(ENV['HOME'], '.railsrc'),
 
+  # Tmux configuration → ~/.*
+  'tools/tmux/tmux.conf' => File.join(ENV['HOME'], '.tmux.conf'),
+
   # ~/.config/ targets
   'editor/nvim'        => File.join(ENV['HOME'], '.config', 'nvim'),
   'tools/starship.toml' => File.join(ENV['HOME'], '.config', 'starship.toml'),

@@ -114,6 +114,7 @@ fi
 # Source my custom aliases and functions
 source $HOME/.dotfiles/shell/aliases
 source $HOME/.dotfiles/shell/functions
+source $HOME/.dotfiles/shell/tmux.zsh
 
 # Source md2pdf function
 [[ -f ~/.dotfiles/shell/extras/md2pdf.zsh ]] && source ~/.dotfiles/shell/extras/md2pdf.zsh
@@ -121,6 +122,8 @@ source $HOME/.dotfiles/shell/functions
 # Environment variables
 export TZ=America/Los_Angeles
 export GIT_PAGER='delta'
+export COLORTERM=truecolor  # Enable 24-bit color for delta, bat, neovim, etc.
+export EDITOR='subl -w'
 
 # Add a custom watcher for CloudFormation deployments
 if [[ $PWD == "$HOME/Projects/custom_models" ]]; then
@@ -129,6 +132,15 @@ fi
 
 # VS Code shell integration
 [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+
+# iTerm2 shell integration and helpers
+if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
+    # Shell integration (provides imgcat, it2dl, command marks, etc.)
+    [[ -e "${HOME}/.iterm2_shell_integration.zsh" ]] && source "${HOME}/.iterm2_shell_integration.zsh"
+
+    # Custom iTerm2 helpers (badges, notifications, theme switching)
+    [[ -f "$HOME/.dotfiles/shell/iterm.zsh" ]] && source "$HOME/.dotfiles/shell/iterm.zsh"
+fi
 
 # ============================================================================
 # Local Configuration (machine-specific, not in git)
