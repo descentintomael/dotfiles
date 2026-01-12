@@ -74,3 +74,22 @@ function take {
 function gc {
     git commit -m "$*"
 }
+
+# =============================================================================
+# Claude Code Multi-Account (Work machine only)
+# =============================================================================
+# Auto-switch between work and personal Claude Code accounts based on directory.
+# Personal projects in ~/personal-projects use personal account, all else uses work.
+# Use explicit aliases (claude-work, claude-personal) to override auto-detection.
+# Only active on work machine (sean-coral-macbook-air).
+
+if [[ "$(scutil --get LocalHostName 2>/dev/null)" == "sean-coral-macbook-air" ]]; then
+    function claude {
+        if [[ "$PWD" == "$HOME/personal-projects"* ]]; then
+            echo "› Using personal Claude account"
+            CLAUDE_CONFIG_DIR=~/.claude-personal command claude "$@"
+        else
+            CLAUDE_CONFIG_DIR=~/.claude-work command claude "$@"
+        fi
+    }
+fi

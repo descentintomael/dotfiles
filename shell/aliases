@@ -95,3 +95,14 @@ alias ctags="$(brew --prefix)/bin/ctags"
 
 # Research folder
 alias sga="cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Smart\ Growth\ Advocates"
+
+# ============================================================================
+# Claude Code Multi-Account (Work machine only)
+# ============================================================================
+# Explicit overrides for auto-switching claude function (see shell/functions)
+# Only active on work machine (sean-coral-macbook-air).
+
+if [[ "$(scutil --get LocalHostName 2>/dev/null)" == "sean-coral-macbook-air" ]]; then
+    alias claude-work="CLAUDE_CONFIG_DIR=~/.claude-work command claude"
+    alias claude-personal="CLAUDE_CONFIG_DIR=~/.claude-personal command claude"
+fi
