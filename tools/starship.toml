@@ -19,7 +19,7 @@ format = """
 [➜](bold red) \
 $ruby\
 $git_branch\
-$custom\
+$git_status\
 $character"""
 
 # Right prompt - show directory (like old project_prompt)
@@ -41,15 +41,18 @@ style = "blue"
 format = "[±\\(](blue)[$branch](bold red)[\\)](blue) "
 
 # Git dirty indicator - single yellow ✗ for any dirty state (matches old theme)
-[custom.git_dirty]
-command = "echo '✗'"
-when = "git status --porcelain 2>/dev/null | grep -q ."
-style = "bold yellow"
-format = "[$output]($style)"
-
-# Disable default git_status (using custom.git_dirty instead)
 [git_status]
-disabled = true
+style = "bold yellow"
+format = "[$modified$untracked$staged$deleted$renamed]($style)"
+modified = "✗"
+untracked = "✗"
+staged = "✗"
+deleted = "✗"
+renamed = "✗"
+stashed = ""
+ahead = ""
+behind = ""
+diverged = ""
 
 # Ruby (rbenv) - bold yellow like old RVM prompt
 [ruby]
