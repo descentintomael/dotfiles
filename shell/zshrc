@@ -103,9 +103,10 @@ if command -v direnv &> /dev/null; then
 fi
 
 # rbenv (Ruby version manager)
-if command -v rbenv &> /dev/null; then
-    eval "$(rbenv init - zsh)"
-fi
+# Disabled: no Rubies installed, and init cost ~34 process launches per new shell.
+# if command -v rbenv &> /dev/null; then
+#     eval "$(rbenv init - zsh)"
+# fi
 
 # ============================================================================
 # Custom Configuration
