@@ -87,7 +87,8 @@ alias rdm="rake db:migrate && rake db:test:clone"
 # ============================================================================
 
 # Brew ctags override
-alias ctags="$(brew --prefix)/bin/ctags"
+# Disabled: Homebrew ctags isn't installed, and $(brew --prefix) ran on every new shell.
+# alias ctags="$(brew --prefix)/bin/ctags"
 
 # ============================================================================
 # Directory Shortcuts
