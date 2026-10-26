@@ -58,6 +58,13 @@ export PATH="/opt/homebrew/opt/bc/bin:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
 
 # ============================================================================
+# Machine Detection
+# ============================================================================
+# Checked once here so aliases/functions don't each launch scutil.
+IS_WORK_MAC=0
+[[ "$(scutil --get LocalHostName 2>/dev/null)" == "sean-coral-macbook-air" ]] && IS_WORK_MAC=1
+
+# ============================================================================
 # Completion System (must be before sheldon for compdef)
 # ============================================================================
 autoload -Uz compinit

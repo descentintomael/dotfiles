@@ -83,7 +83,7 @@ function gc {
 # Use explicit aliases (claude-work, claude-personal) to override auto-detection.
 # Only active on work machine (sean-coral-macbook-air).
 
-if [[ "$(scutil --get LocalHostName 2>/dev/null)" == "sean-coral-macbook-air" ]]; then
+if (( IS_WORK_MAC )); then
     function claude {
         if [[ "$PWD" == "$HOME/personal-projects"* ]]; then
             echo "› Using personal Claude account"
