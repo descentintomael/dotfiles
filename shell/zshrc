@@ -41,18 +41,22 @@ fi
 # ============================================================================
 # PATH Configuration
 # ============================================================================
-export PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:/opt/local/bin:/opt/local/sbin:$PATH
+# Disabled: /usr/local/sbin, /usr/X11/bin and MacPorts' /opt/local/* don't exist.
+# export PATH=/opt/homebrew/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.bin:$PATH
 
 # Sublime text
 export SUBLIME_BIN=/Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 export PATH=$SUBLIME_BIN:$PATH
 
 # Java SDK v17
-export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
-export PATH="$JAVA_HOME/bin:$PATH"
+# Disabled: openjdk@17 isn't installed.
+# export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+# export PATH="$JAVA_HOME/bin:$PATH"
 
 # Homebrew bc utility
-export PATH="/opt/homebrew/opt/bc/bin:$PATH"
+# Disabled: Homebrew bc isn't installed; /usr/bin/bc is used.
+# export PATH="/opt/homebrew/opt/bc/bin:$PATH"
 
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
@@ -105,9 +109,10 @@ if command -v fzf &> /dev/null; then
 fi
 
 # direnv (per-directory environment)
-if command -v direnv &> /dev/null; then
-    eval "$(direnv hook zsh)"
-fi
+# Disabled: no .envrc files exist, and the hook ran direnv before every prompt.
+# if command -v direnv &> /dev/null; then
+#     eval "$(direnv hook zsh)"
+# fi
 
 # rbenv (Ruby version manager)
 # Disabled: no Rubies installed, and init cost ~34 process launches per new shell.
@@ -134,12 +139,14 @@ export COLORTERM=truecolor  # Enable 24-bit color for delta, bat, neovim, etc.
 export EDITOR='subl -w'
 
 # Add a custom watcher for CloudFormation deployments
-if [[ $PWD == "$HOME/Projects/custom_models" ]]; then
-    source "$HOME/Projects/custom_models/.deploy_cf.zsh"
-fi
+# Disabled: ~/Projects/custom_models no longer exists.
+# if [[ $PWD == "$HOME/Projects/custom_models" ]]; then
+#     source "$HOME/Projects/custom_models/.deploy_cf.zsh"
+# fi
 
 # VS Code shell integration
-[[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
+# Disabled: VS Code isn't installed.
+# [[ "$TERM_PROGRAM" == "vscode" ]] && . "$(code --locate-shell-integration-path zsh)"
 
 # iTerm2 shell integration and helpers
 if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then

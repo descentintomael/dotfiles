@@ -31,7 +31,8 @@ else
 fi
 
 # ripgrep - modern grep replacement
-alias ark="rg -t ruby"
+# Disabled: Ruby-era; never used.
+# alias ark="rg -t ruby"
 
 # zoxide aliases (z and zi are added automatically)
 # Use 'z' for smart cd, 'zi' for interactive selection
@@ -53,11 +54,12 @@ alias dotf="cd ~/.dotfiles"
 # ============================================================================
 
 alias tf='tail -f'
-alias tfd='tf log/development.log'
-alias tft='tf log/test.log'
+# Disabled: Rails log tails; never used.
+# alias tfd='tf log/development.log'
+# alias tft='tf log/test.log'
 
 # ============================================================================
-# Git Aliases (supplements sheldon git plugin)
+# Git Aliases
 # ============================================================================
 
 alias gpush='git push origin HEAD'
@@ -80,7 +82,8 @@ alias noskip="git update-index --no-assume-unchanged"
 # Rails/Ruby Aliases
 # ============================================================================
 
-alias rdm="rake db:migrate && rake db:test:clone"
+# Disabled: Ruby-era; never used.
+# alias rdm="rake db:migrate && rake db:test:clone"
 
 # ============================================================================
 # Tool Overrides

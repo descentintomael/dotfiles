@@ -10,9 +10,7 @@
 #   - zsh-autosuggestions  - History-based suggestions
 #   - fast-syntax-highlighting - Real-time syntax highlighting
 #   - fzf-tab              - Fuzzy completion menu
-#   - oh-my-zsh git        - Git aliases and completions
-#   - oh-my-zsh bundler    - Bundle exec shortcuts
-#   - oh-my-zsh rake       - Rake task completion
+#   - oh-my-zsh git/bundler/rake - disabled (see below)
 #
 # Update plugins: sheldon lock --update
 # =============================================================================
@@ -37,19 +35,23 @@ github = "zdharma-continuum/fast-syntax-highlighting"
 github = "Aloxaf/fzf-tab"
 
 # Git plugin from oh-my-zsh
-[plugins.ohmyzsh-git]
-github = "ohmyzsh/ohmyzsh"
-dir = "plugins/git"
-use = ["git.plugin.zsh"]
+# Disabled: none of its 190 aliases were used, and its `g`/`gc` aliases
+# shadowed the g and gc functions in shell/functions.
+# [plugins.ohmyzsh-git]
+# github = "ohmyzsh/ohmyzsh"
+# dir = "plugins/git"
+# use = ["git.plugin.zsh"]
 
 # Bundler plugin from oh-my-zsh
-[plugins.ohmyzsh-bundler]
-github = "ohmyzsh/ohmyzsh"
-dir = "plugins/bundler"
-use = ["bundler.plugin.zsh"]
+# Disabled: Ruby-era; never used.
+# [plugins.ohmyzsh-bundler]
+# github = "ohmyzsh/ohmyzsh"
+# dir = "plugins/bundler"
+# use = ["bundler.plugin.zsh"]
 
 # Rake plugin from oh-my-zsh
-[plugins.ohmyzsh-rake]
-github = "ohmyzsh/ohmyzsh"
-dir = "plugins/rake"
-use = ["rake.plugin.zsh"]
+# Disabled: Ruby-era; never used.
+# [plugins.ohmyzsh-rake]
+# github = "ohmyzsh/ohmyzsh"
+# dir = "plugins/rake"
+# use = ["rake.plugin.zsh"]
